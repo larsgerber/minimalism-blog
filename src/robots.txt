@@ -1,0 +1,30 @@
+# ===================================
+# Generator: https://pixelfolk.net/tools/robots
+# Erstellt am: 02.05.2020, 19:30
+# Webseite: https://blog.larsgerber.ch
+# ===================================
+
+
+# ===================================
+# Folgende Seiten sollen nicht indexiert werden:
+# ===================================
+
+Sitemap: https://blog.larsgerber.ch/sitemap.xml
+
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /temp/
+
+# ===================================
+# Schließe folgende Spider komplett aus:
+# ===================================
+
+User-agent: WebReaper
+User-agent: WebCopier
+User-agent: Offline Explorer
+User-agent: HTTrack
+User-agent: Microsoft.URL.Control
+User-agent: EmailCollector
+User-agent: penthesilea
+Disallow: /

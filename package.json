@@ -1,0 +1,53 @@
+{
+  "name": "test-website",
+  "version": "1.0.0",
+  "description": "Start:",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "gulp": "gulp",
+    "test": "mocha ./tests/test.js --exit",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larsgerber/node-test-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/larsgerber/node-test-website/issues"
+  },
+  "homepage": "https://github.com/larsgerber/node-test-website#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-useragent": "^1.0.15",
+    "gulp-minify-css": "^1.2.4",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.7",
+    "showdown": "^1.9.1",
+    "postcss": "^8.2.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.3",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-nodemon": "^2.5.0",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.0.1",
+    "mocha": "^8.2.1",
+    "node-sass": "^5.0.0",
+    "supertest": "^6.0.1"
+  }
+}

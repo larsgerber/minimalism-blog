@@ -1,0 +1,34 @@
+<%- include('partials/head'); -%>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+      
+    <%- include('partials/header'); -%>
+
+      <section id="writing">
+          <ul class="post-list">
+              <li class="post-item">
+                  <% if (data.allPosts.length> 0) { %> <% data.allPosts.forEach(post=> { %>
+
+                  <div class="meta">
+                      <time datetime="<%= post.createdAt %>" itemprop="datePublished">
+                          <%= post.createdAt %>
+                      </time>
+                      <span>
+                          <a class="" href="<%= post.link %>">
+                              <%= post.title %>
+                          </a>
+                      </span>
+                  </div>
+
+                  <% }) %> <% } else { %>
+
+                  <h4>There are no posts to display...</h4>
+
+                  <% } %>
+              </li>
+          </ul>
+      </section>
+  </div>
+</body>
+</html>

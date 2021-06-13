@@ -1,0 +1,55 @@
+name: Node CI
+
+on:
+  release:
+    types: [published]
+
+
+jobs:  
+  build:
+    runs-on: self-hosted
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Set environment variables
+      run: | 
+        echo "SERVER_PORT=${{secrets.SERVER_PORT}}" >> .env
+        echo "TEST=${{secrets.TEST}}" >> .env
+
+    - name: Install modules
+      run: | 
+        npm install
+
+    - name: Mocha testing
+      run: | 
+        npm run test
+
+    - name: Pause monitoring
+      run: | 
+        python3 /home/lars/scripts/uptimeapi.py stop shargeforce.net
+
+    - name: Stop pm2
+      run: | 
+        pm2 stop shargeforce
+
+    - name: Copy build to production
+      run: | 
+        rm -rf ~/apps/shargeforce.net/*
+        cp -r ~/actions-runner/node-test-website/_work/node-test-website/node-test-website/* ~/apps/shargeforce.net
+        cp -r ~/actions-runner/node-test-website/_work/node-test-website/node-test-website/.env ~/apps/shargeforce.net
+  
+    - name: Start pm2
+      run: | 
+        pm2 start shargeforce --update-env
+
+    - name: Start monitoring
+      run: | 
+        python3 /home/lars/scripts/uptimeapi.py start shargeforce.net
