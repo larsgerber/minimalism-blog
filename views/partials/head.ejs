@@ -5,8 +5,14 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+    
     <!-- Title -->
+    <% if (null == data.title) { %> 
     <title>Blog | Lars Gerber</title>
+    <% } else { %> 
+    <title>Blog | <%= data.title %></title>
+    <% } %>
+    
 
     <!-- Favicons -->
     <meta name="apple-mobile-web-app-title" content="blog.larsgerber.ch">
@@ -38,12 +44,16 @@
     <meta property="og:url" content="https://blog.larsgerber.ch/">
     <meta property="og:title" content="Lars Gerber">
     <meta property="og:description" content="Blog of Lars Gerber">
-    <meta property="og:image" content="https://blog.larsgerber.ch/">
+    <meta property="og:image" content="https://blog.larsgerber.ch/logo/brand.jpg">
 
+    
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://blog.larsgerber.ch/">
     <meta property="twitter:title" content="Lars Gerber">
     <meta property="twitter:description" content="Blog of Lars Gerber">
-    <meta property="twitter:image" content="https://blog.larsgerber.ch/">
+    <meta property="twitter:image" content="https://blog.larsgerber.ch/logo/brand.jpg">
 </head>
+
+<body class="max-width mx-auto px3 ltr">
+    <div class="content index py4">

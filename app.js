@@ -1,5 +1,4 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
 const useragent = require('express-useragent');
 const dotenv = require('dotenv');
 const postRoutes = require('./routes/postRoutes');
@@ -10,7 +9,6 @@ const app = express();
 app.use(express.static('dist'));
 app.use(useragent.express());
 app.use(express.json());
-app.use(cookieParser());
 dotenv.config();
 
 
@@ -27,8 +25,9 @@ app.use((req, res) => {
 
 // 500
 app.use((err, req, res, next) => {
-  res.status(503).render('errors/503')}
-);
+  const data = { title: "Error 503" }
+  res.status(503).render('errors/503', { data })
+});
 
 // start server
 app.listen(process.env.SERVER_PORT, () => {

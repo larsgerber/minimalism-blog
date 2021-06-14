@@ -25,7 +25,8 @@ const post_index = (req, res) => {
     }
     `;
 
-    fetch("http://localhost:"+ process.env.KEYSTONE_PORT + "/admin/api", {
+    fetch("https://author.larsgerber.ch/admin/api", {
+    // fetch("http://localhost:"+ process.env.KEYSTONE_PORT + "/admin/api", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -43,7 +44,8 @@ const post_index = (req, res) => {
 
             res.render('home', { data: data.data });
         }).catch(function () {
-            res.status(504).render('errors/504');
+            const data = { title: "Error 504" }
+            res.status(504).render('errors/504', { data });
         });
 }
 
@@ -66,7 +68,8 @@ const post_details = (req, res) => {
     }
     `;
 
-    fetch("http://localhost:"+ process.env.KEYSTONE_PORT + "/admin/api", {
+    fetch("https://author.larsgerber.ch/admin/api", {
+    // fetch("http://localhost:"+ process.env.KEYSTONE_PORT + "/admin/api", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -79,7 +82,8 @@ const post_details = (req, res) => {
         .then(data => {
 
             if (0 === data.data.allPosts.length) {
-                res.status(404).render('errors/404');
+                const data = { title: "Error 404" }
+                res.status(404).render('errors/404', { data });
             } else {
                 data.data.allPosts[0].updatedAt = (new Date(data.data.allPosts[0].updatedAt).toLocaleString());
 
@@ -94,7 +98,8 @@ const post_details = (req, res) => {
             }
 
         }).catch(function () {
-            res.status(504).render('errors/504');
+            const data = { title: "Error 504" }
+            res.status(504).render('errors/504', { data });
         });
 }
 

@@ -1,9 +1,6 @@
 name: Node CI
 
-on:
-  release:
-    types: [published]
-
+on: [push]
 
 jobs:  
   build:
@@ -22,6 +19,7 @@ jobs:
     - name: Set environment variables
       run: | 
         echo "SERVER_PORT=${{secrets.SERVER_PORT}}" >> .env
+        echo "SERVER_PORT=${{secrets.KEYSTONE_PORT}}" >> .env
         echo "TEST=${{secrets.TEST}}" >> .env
 
     - name: Install modules
@@ -32,24 +30,24 @@ jobs:
       run: | 
         npm run test
 
-    - name: Pause monitoring
-      run: | 
-        python3 /home/lars/scripts/uptimeapi.py stop shargeforce.net
+    # - name: Pause monitoring
+    #   run: | 
+    #     python3 /home/lars/scripts/uptimeapi.py stop "Website (blog.larsgerber.ch)"
 
-    - name: Stop pm2
-      run: | 
-        pm2 stop shargeforce
+    # - name: Stop pm2
+    #   run: | 
+    #     pm2 stop blog-larsgerber
 
     - name: Copy build to production
       run: | 
         rm -rf ~/apps/shargeforce.net/*
-        cp -r ~/actions-runner/node-test-website/_work/node-test-website/node-test-website/* ~/apps/shargeforce.net
-        cp -r ~/actions-runner/node-test-website/_work/node-test-website/node-test-website/.env ~/apps/shargeforce.net
+        cp -r ~/actions-runner/minimalism-blog/_work/minimalism-blog/minimalism-blog/* ~/apps/blog.larsgerber.ch
+        cp -r ~/actions-runner/minimalism-blog/_work/minimalism-blog/minimalism-blog/.env ~/apps/blog.larsgerber.ch
   
-    - name: Start pm2
-      run: | 
-        pm2 start shargeforce --update-env
+    # - name: Start pm2
+    #   run: | 
+    #     pm2 start blog-larsgerber --update-env
 
-    - name: Start monitoring
-      run: | 
-        python3 /home/lars/scripts/uptimeapi.py start shargeforce.net
+    # - name: Start monitoring
+    #   run: | 
+    #     python3 /home/lars/scripts/uptimeapi.py start "Website (blog.larsgerber.ch)"
