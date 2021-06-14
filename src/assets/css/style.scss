@@ -364,7 +364,7 @@ body {
 		display: block;
 		margin-top: 3rem;
 		margin-bottom: 1rem;
-		color: #2bbc8a;
+		color: #d2a6fe;
 		letter-spacing: 0.01em;
 		font-weight: 700;
 		font-style: normal;
@@ -376,7 +376,7 @@ body {
 		display: block;
 		margin-top: 3rem;
 		margin-bottom: 1rem;
-		color: #2bbc8a;
+		color: #d2a6fe;
 		letter-spacing: 0.01em;
 		font-weight: 700;
 		font-style: normal;
@@ -741,7 +741,7 @@ html {
 		-webkit-filter: grayscale(100%);
 	}
 	#nav {
-		color: #2bbc8a;
+		color: #d2a6fe;
 		letter-spacing: 0.01em;
 		font-weight: 200;
 		font-style: normal;
@@ -753,9 +753,9 @@ html {
 			line-height: 15px;
 			a {
 				margin-right: 15px;
-				color: #2bbc8a;
+				color: #d2a6fe;
 				&:hover {
-					background-image: linear-gradient(transparent, transparent 5px, #2bbc8a 5px, #2bbc8a);
+					background-image: linear-gradient(transparent, transparent 5px, #d2a6fe 5px, #d2a6fe);
 					background-position: bottom;
 					background-size: 100% 6px;
 					background-repeat: repeat-x;
@@ -765,7 +765,7 @@ html {
 				display: inline-block;
 				margin-right: 15px;
 				border-right: 1px dotted;
-				border-color: #2bbc8a;
+				border-color: #d2a6fe;
 				vertical-align: middle;
 				&:last-child {
 					margin-right: 0;
@@ -827,7 +827,7 @@ html {
 		margin-right: 2rem;
 		margin-left: 15px;
 		&:hover {
-			color: #2bbc8a;
+			color: #d2a6fe;
 		}
 	}
 	#menu-icon-tablet {
@@ -835,7 +835,7 @@ html {
 		margin-right: 2rem;
 		margin-left: 15px;
 		&:hover {
-			color: #2bbc8a;
+			color: #d2a6fe;
 		}
 	}
 	#top-icon-tablet {
@@ -845,18 +845,18 @@ html {
 		margin-right: 2rem;
 		margin-left: 15px;
 		&:hover {
-			color: #2bbc8a;
+			color: #d2a6fe;
 		}
 	}
 	.active {
-		color: #2bbc8a;
+		color: #d2a6fe;
 	}
 	#menu {
 		visibility: hidden;
 		margin-right: 2rem;
 	}
 	#nav {
-		color: #2bbc8a;
+		color: #d2a6fe;
 		letter-spacing: 0.01em;
 		font-weight: 200;
 		font-style: normal;
@@ -865,16 +865,16 @@ html {
 			line-height: 15px;
 			a {
 				margin-right: 15px;
-				color: #2bbc8a;
+				color: #d2a6fe;
 				&:hover {
-					background-image: linear-gradient(transparent, transparent 5px, #2bbc8a 5px, #2bbc8a);
+					background-image: linear-gradient(transparent, transparent 5px, #d2a6fe 5px, #d2a6fe);
 					background-position: bottom;
 					background-size: 100% 6px;
 					background-repeat: repeat-x;
 				}
 			}
 			li {
-				border-right: 1px dotted #2bbc8a;
+				border-right: 1px dotted #d2a6fe;
 				&:last-child {
 					margin-right: 0;
 					border-right: 0;
@@ -932,7 +932,7 @@ html {
 			color: #c9cacc;
 			font-size: 0.8rem;
 			&:before {
-				color: #2bbc8a;
+				color: #d2a6fe;
 				content: "#";
 			}
 		}
@@ -982,10 +982,10 @@ html {
 		background: #323539;
 		text-align: center;
 		a {
-			color: #2bbc8a;
+			color: #d2a6fe;
 			font-size: 1em;
 			&:hover {
-				background-image: linear-gradient(transparent, transparent 5px, #2bbc8a 5px, #2bbc8a);
+				background-image: linear-gradient(transparent, transparent 5px, #d2a6fe 5px, #d2a6fe);
 				background-position: bottom;
 				background-size: 100% 6px;
 				background-repeat: repeat-x;
@@ -1017,7 +1017,7 @@ html {
 		a {
 			display: inline-block;
 			padding-left: 1rem;
-			color: #2bbc8a;
+			color: #d2a6fe;
 		}
 	}
 	#share-footer {
@@ -1067,7 +1067,7 @@ html {
 			color: #c9cacc;
 			font-size: 0.8rem;
 			&:before {
-				color: #2bbc8a;
+				color: #d2a6fe;
 				content: "#";
 			}
 		}
@@ -1149,7 +1149,7 @@ article {
 				position: absolute;
 				top: -4px;
 				left: -1rem;
-				color: #2bbc8a;
+				color: #d2a6fe;
 				content: "#";
 				font-weight: bold;
 				font-size: 1.2rem;
@@ -1382,7 +1382,7 @@ article {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	&:focus {
-		border: solid 1px #2bbc8a;
+		border: solid 1px #d2a6fe;
 	}
 }
 #search-result {
@@ -1721,7 +1721,7 @@ article {
 		opacity: 0;
 		transition: opacity 0.2s ease-in;
 		&:hover {
-			color: #2bbc8a;
+			color: #d2a6fe;
 		}
 	}
 	pre {
@@ -2002,7 +2002,7 @@ code {
 }
 
 .copy:hover {
-	color: #2bbc8a;
+	color: #d2a6fe;
 }
   
 // .copy:active {

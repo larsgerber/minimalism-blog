@@ -103,7 +103,39 @@ const post_details = (req, res) => {
         });
 }
 
+const sitemap = (req, res) => {
+
+    const query = `
+    query {
+        allPosts(sortBy: createdAt_DESC,where: { publish: true }) {
+        updatedAt,
+        link,
+      }
+    }
+    `;
+
+    fetch("https://author.larsgerber.ch/admin/api", {
+    // fetch("http://localhost:"+ process.env.KEYSTONE_PORT + "/admin/api", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ query })
+    })
+        .then(result => {
+            return result.json();
+        })
+        .then(data => {
+            res.set('Content-Type', 'text/xml');
+            res.render('partials/sitemap', { data: data.data });
+        }).catch(function () {
+            const data = { title: "Error 504" }
+            res.status(504).render('errors/504', { data });
+        });
+}
+
 module.exports = {
     post_index,
     post_details,
+    sitemap,
 }

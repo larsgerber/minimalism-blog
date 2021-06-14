@@ -16,7 +16,7 @@ function copyLogo() {
 }
 
 function copyFiles() {
-    return src(["src/robots.txt", "src/sitemap.xml"])
+    return src(["src/robots.txt", "src/favicon.ico"])
         .pipe(dest('dist/'));
 }
 
