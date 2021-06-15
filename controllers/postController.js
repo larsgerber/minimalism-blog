@@ -38,7 +38,7 @@ const post_index = (req, res) => {
         .then(data => {
 
             data.data.allPosts.forEach(post => {
-                post.createdAt = (new Date(post.createdAt).toLocaleString());
+                post.createdAt_local = (new Date(post.createdAt).toLocaleString());
             })
 
             res.render('home', { data: data.data });
@@ -83,7 +83,7 @@ const post_details = (req, res) => {
                 const data = { title: "Error 404" }
                 res.status(404).render('errors/404', { data });
             } else {
-                data.data.allPosts[0].updatedAt = (new Date(data.data.allPosts[0].updatedAt).toLocaleString());
+                data.data.allPosts[0].updatedAt_local = (new Date(data.data.allPosts[0].updatedAt).toLocaleString());
 
                 var body = data.data.allPosts[0].body
 

@@ -18,6 +18,12 @@ app.set('view engine', 'ejs');
 // post routes
 app.use('/', postRoutes);
 
+// 404
+app.use((req, res) => {
+  const data = { title: "Error 404" }
+  res.status(404).render('errors/404', { data });
+});
+
 // 500
 app.use((err, req, res, next) => {
   const data = { title: "Error 503" }
