@@ -1,53 +1,57 @@
-# name: Node CI
+name: Node CI
 
 # on: [push]
 
-# jobs:  
-#   build:
-#     runs-on: self-hosted
-#     strategy:
-#       matrix:
-#         node-version: [12.x]
+on:
+  release:
+    types: [published]
 
-#     steps:
-#     - uses: actions/checkout@v1
-#     - name: Use Node.js ${{ matrix.node-version }}
-#       uses: actions/setup-node@v1
-#       with:
-#         node-version: ${{ matrix.node-version }}
+jobs:  
+  build:
+    runs-on: self-hosted
+    strategy:
+      matrix:
+        node-version: [12.x]
 
-#     - name: Set environment variables
-#       run: | 
-#         echo "SERVER_PORT=${{secrets.SERVER_PORT}}" >> .env
-#         echo "SERVER_PORT=${{secrets.KEYSTONE_PORT}}" >> .env
-#         echo "TEST=${{secrets.TEST}}" >> .env
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
 
-#     - name: Install modules
-#       run: | 
-#         npm install
+    - name: Set environment variables
+      run: | 
+        echo "SERVER_PORT=${{secrets.SERVER_PORT}}" >> .env
+        echo "SERVER_PORT=${{secrets.KEYSTONE_PORT}}" >> .env
+        echo "TEST=${{secrets.TEST}}" >> .env
 
-#     - name: Mocha testing
-#       run: | 
-#         npm run test
+    - name: Install modules
+      run: | 
+        npm install
 
-#     # - name: Pause monitoring
-#     #   run: | 
-#     #     python3 /home/lars/scripts/uptimeapi.py stop "Website (blog.larsgerber.ch)"
+    - name: Mocha testing
+      run: | 
+        npm run test
 
-#     # - name: Stop pm2
-#     #   run: | 
-#     #     pm2 stop blog-larsgerber
+    # - name: Pause monitoring
+    #   run: | 
+    #     python3 /home/lars/scripts/uptimeapi.py stop "Website (blog.larsgerber.ch)"
 
-#     - name: Copy build to production
-#       run: | 
-#         rm -rf ~/apps/shargeforce.net/*
-#         cp -r ~/actions-runner/minimalism-blog/_work/minimalism-blog/minimalism-blog/* ~/apps/blog.larsgerber.ch
-#         cp -r ~/actions-runner/minimalism-blog/_work/minimalism-blog/minimalism-blog/.env ~/apps/blog.larsgerber.ch
+    # - name: Stop pm2
+    #   run: | 
+    #     pm2 stop blog-larsgerber
+
+    - name: Copy build to production
+      run: | 
+        rm -rf ~/apps/shargeforce.net/*
+        cp -r ~/actions-runner/minimalism-blog/_work/minimalism-blog/minimalism-blog/* ~/apps/blog.larsgerber.ch
+        cp -r ~/actions-runner/minimalism-blog/_work/minimalism-blog/minimalism-blog/.env ~/apps/blog.larsgerber.ch
   
-#     # - name: Start pm2
-#     #   run: | 
-#     #     pm2 start blog-larsgerber --update-env
+    # - name: Start pm2
+    #   run: | 
+    #     pm2 start blog-larsgerber --update-env
 
-#     # - name: Start monitoring
-#     #   run: | 
-#     #     python3 /home/lars/scripts/uptimeapi.py start "Website (blog.larsgerber.ch)"
+    # - name: Start monitoring
+    #   run: | 
+    #     python3 /home/lars/scripts/uptimeapi.py start "Website (blog.larsgerber.ch)"
