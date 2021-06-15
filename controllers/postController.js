@@ -26,7 +26,6 @@ const post_index = (req, res) => {
     `;
 
     fetch("https://author.larsgerber.ch/admin/api", {
-    // fetch("http://localhost:"+ process.env.KEYSTONE_PORT + "/admin/api", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -61,7 +60,7 @@ const post_details = (req, res) => {
         image {
             image {
               filename
-              publicUrlTransformed(transformation: { height: "500", crop: "limit" })
+              publicUrlTransformed(transformation: { height: "500", crop: "scale" })
             }
         }
       }
@@ -69,7 +68,6 @@ const post_details = (req, res) => {
     `;
 
     fetch("https://author.larsgerber.ch/admin/api", {
-    // fetch("http://localhost:"+ process.env.KEYSTONE_PORT + "/admin/api", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -115,7 +113,6 @@ const sitemap = (req, res) => {
     `;
 
     fetch("https://author.larsgerber.ch/admin/api", {
-    // fetch("http://localhost:"+ process.env.KEYSTONE_PORT + "/admin/api", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
