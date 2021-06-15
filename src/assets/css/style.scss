@@ -1,18 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
-$lightpink: #d480aa;
-$pink: #d2a6fe;
+$lightpink: #d480aa; 	// link hover
+$pink: #d2a6fe;		 	// title and #
 
-$white: #fff;
-$lightgrey: #eee;
-$grey: #d1d9e1;
-$darkgrey: #c9cacc;
+$white: #fff;			// logo
+$lightgrey: #eee;		// blog heading
+$grey: #d1d9e1;		 	// code block text
+$darkgrey: #c9cacc;	 	// blog text
 
-$darkgrey: #666;
-$lightblack: #212326;
-$black: #1d1f21;
+$lightbrown: #666;   	// codeblock frame
+$lightblack: #212326;   // codeblock background
+$black: #1d1f21;		// page background
 
-$green: #49a314;
+$green: #49a314;		// copy button
 
 .mx-auto {
     margin-right: auto;
@@ -38,7 +38,7 @@ body {
         display: block;
         margin-top: 3rem;
         margin-bottom: 1rem;
-        color: #d2a6fe;
+        color: $pink;
         letter-spacing: 0.01em;
         font-weight: 700;
         font-style: normal;
@@ -52,7 +52,7 @@ body {
         display: block;
         margin-top: 2rem;
         margin-bottom: 0.5rem;
-        color: #eee;
+        color: $lightgrey;
         text-transform: none;
         letter-spacing: normal;
         font-weight: bold;
@@ -60,7 +60,7 @@ body {
     }
 
     h3 {
-        color: #eee;
+        color: $lightgrey;
         text-decoration: underline;
         font-weight: bold;
         font-size: 0.9rem;
@@ -73,7 +73,7 @@ body {
     h6 {
         display: inline;
         text-decoration: none;
-        color: #c9cacc;
+        color: $darkgrey;
         font-weight: bold;
         font-size: 0.9rem;
         margin-top: 0.9rem;
@@ -81,7 +81,7 @@ body {
     }
 
     hr {
-        border: 0.5px dashed #c9cacc;
+        border: 0.5px dashed $darkgrey;
         opacity: 0.5;
         margin: 0;
         margin-top: 20px;
@@ -176,8 +176,8 @@ body {
 
     th {
         padding: 8px;
-        border-bottom: 1px dashed #666;
-        color: #eee;
+        border-bottom: 1px dashed $lightbrown;
+        color: $lightgrey;
         font-weight: bold;
         font-size: 13px;
     }
@@ -189,8 +189,8 @@ body {
 
     margin: 0;
     height: 100%;
-    background-color: #1d1f21;
-    color: #c9cacc;
+    background-color: $black;
+    color: $darkgrey;
     font-display: swap;
     font-weight: 400;
     font-size: 14px;
@@ -244,15 +244,15 @@ html {
     }
 
     a {
-        color: #c9cacc;
+        color: $darkgrey;
         text-decoration: none;
-        background-image: linear-gradient(transparent, transparent 5px, #c9cacc 5px, #c9cacc);
+        background-image: linear-gradient(transparent, transparent 5px, $darkgrey 5px, $darkgrey);
         background-position: bottom;
         background-size: 100% 6px;
         background-repeat: repeat-x;
 
         &:hover {
-            background-image: linear-gradient(transparent, transparent 4px, #d480aa 4px, #d480aa);
+            background-image: linear-gradient(transparent, transparent 4px, $lightpink 4px, $lightpink);
         }
     }
 
@@ -260,7 +260,7 @@ html {
         background: none;
 
         &:hover {
-            color: #d480aa;
+            color: $lightpink;
         }
     }
 
@@ -275,7 +275,7 @@ html {
             text-decoration: none;
 
             &:hover {
-                background-image: linear-gradient(transparent, transparent 6px, #d480aa 6px, #d480aa);
+                background-image: linear-gradient(transparent, transparent 6px, $lightpink 6px, $lightpink);
                 background-position: bottom;
                 background-size: 100% 6px;
                 background-repeat: repeat-x;
@@ -293,11 +293,11 @@ html {
             text-decoration: none;
 
             &:hover {
-                background-image: linear-gradient(transparent, transparent 6px, #d480aa 6px, #d480aa);
+                background-image: linear-gradient(transparent, transparent 6px, $lightpink 6px, $lightpink);
                 background-position: bottom;
                 background-size: 100% 6px;
                 background-repeat: repeat-x;
-                background-image: linear-gradient(transparent, transparent 6px, #d480aa 6px, #d480aa);
+                background-image: linear-gradient(transparent, transparent 6px, $lightpink 6px, $lightpink);
                 background-position: bottom;
                 background-size: 100% 6px;
                 background-repeat: repeat-x;
@@ -313,7 +313,7 @@ html {
     h1 {
         margin-top: 0;
         margin-bottom: 0;
-        color: #c9cacc;
+        color: $darkgrey;
         letter-spacing: 0.01em;
         font-weight: 700;
         font-style: normal;
@@ -363,7 +363,7 @@ html {
             display: block;
             margin-right: 16px;
             min-width: 100px;
-            color: #666;
+            color: $lightbrown;
             font-size: 14px;
         }
     }
@@ -384,7 +384,7 @@ article {
             margin-bottom: 1rem;
 
             * {
-                color: #c9cacc;
+                color: $darkgrey;
                 font-size: 0.85rem;
             }
         }
@@ -406,7 +406,7 @@ article {
                 position: absolute;
                 top: -4px;
                 left: -1rem;
-                color: #d2a6fe;
+                color: $pink;
                 content: "#";
                 font-weight: bold;
                 font-size: 1.2rem;
@@ -470,13 +470,12 @@ article {
 }
 
 .highlight {
-    // background: #474949;
-    color: #d1d9e1;
+    color: $grey;
     overflow-x: auto;
     margin: 1rem 0;
     padding: 10px 15px;
     border-radius: 4px;
-    background: #212326;
+    background: $lightblack;
     font-family: "Roboto Mono", monospace;
     -webkit-border-radius: 4px;
 
@@ -501,7 +500,7 @@ pre {
     overflow-x: auto;
     padding: 10px 15px;
     padding-bottom: 0;
-    border: 1px dotted #666;
+    border: 1px dotted $lightbrown;
     border-radius: 4px;
     font-size: 13px;
     font-family: "Roboto Mono", monospace;
@@ -517,7 +516,7 @@ pre {
 
 code {
     padding: 0 5px;
-    border: 1px dotted #666;
+    border: 1px dotted $lightbrown;
     border-radius: 2px;
     -webkit-border-radius: 2px;
 }
@@ -582,7 +581,7 @@ code {
 }
 
 .logo {
-    fill: #fff;
+    fill: $white;
     width: 6rem;
     height: 6rem;
 }
@@ -610,7 +609,7 @@ code {
 }
 
 .copy:hover {
-    color: #d2a6fe;
+    color: $pink;
 }
 
 .copy:after {
@@ -619,7 +618,7 @@ code {
 }
 
 .copy.active:after {
-    color: #49a314;
+    color: $green;
     font-family: "FontAwesome";
     content: "\f00c";
 }
