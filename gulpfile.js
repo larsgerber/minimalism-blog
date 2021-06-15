@@ -3,7 +3,8 @@ const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
 const sass = require('gulp-sass');
 const { src, series, parallel, dest, watch } = require('gulp');
-const runList = [copyIcons, copyLogo, copyFiles, copyAssets, compileSass]
+const minify = require('gulp-minify');
+const runList = [copyIcons, copyLogo, copyFiles, compileJS, compileSass]
 
 function copyIcons() {
     return src("src/icon/**")
@@ -20,16 +21,17 @@ function copyFiles() {
         .pipe(dest('dist/'));
 }
 
-function copyAssets() {
-    return src(['src/assets/**', '!src/assets/css/**'])
-        .pipe(dest('dist/assets'));
+function compileJS() {
+    return src(['src/assets/js/**'])
+        .pipe(minify())
+        .pipe(dest('dist/assets/js'));
 }
 
 function compileSass() {
     return src('src/assets/css/**')
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(postcss([autoprefixer(), cssnano()]))
-        .pipe(dest('dist/assets/css/'));
+        .pipe(dest('dist/assets/css'));
 }
 
 function watchTask() {
