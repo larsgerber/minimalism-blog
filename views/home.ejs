@@ -1,29 +1,27 @@
 <%- include('partials/head'); -%>  
 <%- include('partials/header'); -%>
 
-<section id="writing">
-    <ul class="post-list">
-        <li class="post-item">
-            <% if (data.allPosts.length > 0) { %> <% data.allPosts.forEach(post=> { %>
+<ul class="post-list">
+    <li class="post-item">
+        <% if (data.allPosts.length > 0) { %> <% data.allPosts.forEach(post=> { %>
 
-            <div class="meta">
-                <time datetime="<%= post.createdAt %>" itemprop="datePublished">
-                    <%= post.createdAt_local %>
-                </time>
-                <span>
-                    <a class="" href="<%= post.link %>">
-                        <%= post.title %>
-                    </a>
-                </span>
-            </div>
+        <div class="meta">
+            <time datetime="<%= post.createdAt %>" itemprop="datePublished">
+                <%= post.createdAt_local %>
+            </time>
+            <span>
+                <a class="" href="<%= post.link %>">
+                    <%= post.title %>
+                </a>
+            </span>
+        </div>
 
-            <% }) %> <% } else { %>
+        <% }) %> <% } else { %>
 
-            <h4>There are no posts to display...</h4>
+        <h4>There are no posts to display...</h4>
 
-            <% } %>
-        </li>
-    </ul>
-</section>
+        <% } %>
+    </li>
+</ul>
 
 <%- include('partials/footer'); -%>
