@@ -1,4 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@font-face {
+    font-style: normal;
+    font-family: "Roboto Mono";
+    font-display: swap;
+    src: local("Roboto Mono"), url("/assets/fonts/RobotoMono.ttf") format("truetype");
+}
 
 $lightpink: #d480aa; 	// link hover
 $pink: #d2a6fe;		 	// title and #
@@ -625,4 +630,17 @@ code {
 img[src*="#thumbnail"] {
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+.kb-club {
+    padding-top: 3rem;
+}
+
+.kb-club a,
+.kb-club a:hover,
+.kb-club a:visited,
+.kb-club a:link,
+.kb-club a:active {
+    text-decoration: none;
+    background-image: none;
 }

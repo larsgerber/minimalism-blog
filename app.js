@@ -2,11 +2,13 @@ const express = require('express');
 const useragent = require('express-useragent');
 const dotenv = require('dotenv');
 const postRoutes = require('./routes/postRoutes');
+const compression = require('compression');
 const app = express();
 
 
 // middleware
-app.use(express.static('dist'));
+app.use(compression());
+app.use(express.static('dist', { maxAge: 2592000000 }));
 app.use(useragent.express());
 app.use(express.json());
 dotenv.config();
@@ -24,7 +26,7 @@ app.use((req, res) => {
   res.status(404).render('errors/404', { data });
 });
 
-// 500
+// 503
 app.use((err, req, res, next) => {
   const data = { title: "Error 503" }
   res.status(503).render('errors/503', { data })

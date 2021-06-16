@@ -4,11 +4,16 @@ const autoprefixer = require('autoprefixer');
 const sass = require('gulp-sass');
 const { src, series, parallel, dest, watch } = require('gulp');
 const minify = require('gulp-minify');
-const runList = [copyIcons, copyLogo, copyFiles, compileJS, compileSass]
+const runList = [copyIcons, copyLogo, copyFiles, compileJS, compileSass, copyFonts]
 
 function copyIcons() {
     return src("src/icon/**")
         .pipe(dest('dist/icon'));
+}
+
+function copyFonts() {
+    return src("src/assets/fonts/**")
+        .pipe(dest('dist/assets/fonts'));
 }
 
 function copyLogo() {

@@ -10,7 +10,7 @@
                 <%= post.createdAt_local %>
             </time>
             <span>
-                <a class="" href="<%= post.link %>">
+                <a href="<%= post.link %>">
                     <%= post.title %>
                 </a>
             </span>
@@ -22,6 +22,12 @@
 
         <% } %>
     </li>
+
+    <div class="kb-club">
+        <a href="https://512kb.club">
+            <img src="https://512kb.club/assets/images/blue-team.svg" />
+        </a>
+    </div>
 </ul>
 
 <%- include('partials/footer'); -%>
