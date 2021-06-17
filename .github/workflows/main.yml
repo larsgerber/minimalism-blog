@@ -41,7 +41,7 @@ jobs:
 
     - name: Copy build to production
       run: | 
-        rm -rf ~/apps/shargeforce.net/*
+        rm -rf ~/apps/blog.larsgerber.ch/*
         cp -r ~/actions-runner/minimalism-blog/_work/minimalism-blog/minimalism-blog/* ~/apps/blog.larsgerber.ch
         cp -r ~/actions-runner/minimalism-blog/_work/minimalism-blog/minimalism-blog/.env ~/apps/blog.larsgerber.ch
   
