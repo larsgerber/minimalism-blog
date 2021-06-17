@@ -1,10 +1,8 @@
 name: Node CI
 
-on: [push]
-# 
-# on:
-#   release:
-#     types: [published]
+on:
+  release:
+    types: [published]
 
 jobs:  
   build:
@@ -33,9 +31,9 @@ jobs:
       run: | 
         npm run test
 
-    # - name: Pause monitoring
-    #   run: | 
-    #     python3 /home/lars/scripts/uptimeapi.py stop "Website (blog.larsgerber.ch)"
+    - name: Pause monitoring
+      run: | 
+        python3 /home/lars/scripts/uptimeapi.py stop "Website (blog.larsgerber.ch)"
 
     - name: Stop pm2
       run: | 
@@ -51,6 +49,6 @@ jobs:
       run: | 
         pm2 start blog-larsgerber --update-env
 
-    # - name: Start monitoring
-    #   run: | 
-    #     python3 /home/lars/scripts/uptimeapi.py start "Website (blog.larsgerber.ch)"
+    - name: Start monitoring
+      run: | 
+        python3 /home/lars/scripts/uptimeapi.py start "Website (blog.larsgerber.ch)"
