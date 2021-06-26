@@ -1,7 +1,7 @@
 {
-  "name": "test-website",
+  "name": "minimalism-blog",
   "version": "1.0.0",
-  "description": "Start:",
+  "description": "Website of blog.larsgerber.ch ",
   "main": "app.js",
   "directories": {
     "test": "tests"
@@ -14,14 +14,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/larsgerber/node-test-website.git"
+    "url": "git+https://github.com/larsgerber/minimalism-blog.git"
   },
-  "author": "",
+  "keywords": [
+    "blog",
+    "graphql"
+  ],
+  "author": "Lars Gerber",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/larsgerber/node-test-website/issues"
+    "url": "https://github.com/larsgerber/minimalism-blog/issues"
   },
-  "homepage": "https://github.com/larsgerber/node-test-website#readme",
+  "homepage": "https://github.com/larsgerber/minimalism-blog#readme",
   "dependencies": {
     "compression": "^1.7.4",
     "dotenv": "^10.0.0",
