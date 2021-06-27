@@ -17,8 +17,7 @@
     "url": "git+https://github.com/larsgerber/minimalism-blog.git"
   },
   "keywords": [
-    "blog",
-    "graphql"
+    "blog"
   ],
   "author": "Lars Gerber",
   "license": "ISC",
