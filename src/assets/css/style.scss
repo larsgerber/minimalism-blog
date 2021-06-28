@@ -5,37 +5,37 @@
     src: local("Roboto Mono"), url("/assets/fonts/RobotoMono.ttf") format("truetype");
 }
 
-// :root {
-    $lightpink: #d480aa; 	// link hover
-    $pink: #d2a6fe;		 	// title and #
-    $green: #49a314;		// copy button
+:root {
+    --lightpink: #d480aa; 	// link hover
+    --pink: #d2a6fe;		 	// title and #
+    --green: #49a314;		// copy button
 
-    $white: #fff;			// logo
-    $lightgrey: #eee;		// blog heading
-    $grey: #d1d9e1;		 	// code block text
-    $darkgrey: #c9cacc;	 	// blog text
+    --white: #fff;			// logo
+    --lightgrey: #eee;		// blog heading
+    --grey: #d1d9e1;		 	// code block text
+    --darkgrey: #c9cacc;	 	// blog text
 
-    $lightbrown: #666;   	// codeblock frame
-    $lightblack: #212326;   // codeblock background
-    $black: #1d1f21;		// page background
-// }
+    --lightbrown: #666;   	// codeblock frame
+    --lightblack: #212326;   // codeblock background
+    --black: #1d1f21;		// page background
+}
 
-// @media (prefers-color-scheme: dark) {
-//     :root {
-//         $lightpink: #d480aa; 	// link hover
-//         $pink: #167bdd;		 	// title and #
-//         $green: #49a314;		// copy button
+@media (prefers-color-scheme: light) {
+    :root {
+        --lightpink: #d480aa; 	// link hover
+        --pink: #167bdd;		 	// title and #
+        --green: #49a314;		// copy button
 
-//         $white: #000000;			// logo
-//         $lightgrey: #000000;		// blog heading
-//         $grey: #000000;		 	// code block text
-//         $darkgrey: #000000;	 	// blog text
+        --white: #000000;			// logo
+        --lightgrey: #000000;		// blog heading
+        --grey: #000000;		 	// code block text
+        --darkgrey: #000000;	 	// blog text
 
-//         $lightbrown: #919191;   	// codeblock frame
-//         $lightblack: #f0f4f9;   // codeblock backgroundy
-//         $black: #ffffff;		// page background
-//     }
-// }
+        --lightbrown: #919191;   	// codeblock frame
+        --lightblack: #f0f4f9;   // codeblock backgroundy
+        --black: #ffffff;		// page background
+    }
+}
 
 
 .mx-auto {
@@ -62,7 +62,7 @@ body {
         display: block;
         margin-top: 3rem;
         margin-bottom: 1rem;
-        color: $pink;
+        color: var(--pink);
         letter-spacing: 0.01em;
         font-weight: 700;
         font-style: normal;
@@ -76,7 +76,7 @@ body {
         display: block;
         margin-top: 2rem;
         margin-bottom: 0.5rem;
-        color: $lightgrey;
+        color: var(--lightgrey);
         text-transform: none;
         letter-spacing: normal;
         font-weight: bold;
@@ -84,7 +84,7 @@ body {
     }
 
     h3 {
-        color: $lightgrey;
+        color: var(--lightgrey);
         text-decoration: underline;
         font-weight: bold;
         font-size: 0.9rem;
@@ -97,7 +97,7 @@ body {
     h6 {
         display: inline;
         text-decoration: none;
-        color: $darkgrey;
+        color: var(--darkgrey);
         font-weight: bold;
         font-size: 0.9rem;
         margin-top: 0.9rem;
@@ -105,7 +105,7 @@ body {
     }
 
     hr {
-        border: 0.5px dashed $darkgrey;
+        border: 0.5px dashed var(--darkgrey);
         opacity: 0.5;
         margin: 0;
         margin-top: 20px;
@@ -200,8 +200,8 @@ body {
 
     th {
         padding: 8px;
-        border-bottom: 1px dashed $lightbrown;
-        color: $lightgrey;
+        border-bottom: 1px dashed var(--lightbrown);
+        color: var(--lightgrey);
         font-weight: bold;
         font-size: 13px;
     }
@@ -213,8 +213,8 @@ body {
 
     margin: 0;
     height: 100%;
-    background-color: $black;
-    color: $darkgrey;
+    background-color: var(--black);
+    color: var(--darkgrey);
     font-display: swap;
     font-weight: 400;
     font-size: 14px;
@@ -268,15 +268,15 @@ html {
     }
 
     a {
-        color: $darkgrey;
+        color: var(--darkgrey);
         text-decoration: none;
-        background-image: linear-gradient(transparent, transparent 5px, $darkgrey 5px, $darkgrey);
+        background-image: linear-gradient(transparent, transparent 5px, var(--darkgrey) 5px, var(--darkgrey));
         background-position: bottom;
         background-size: 100% 6px;
         background-repeat: repeat-x;
 
         &:hover {
-            background-image: linear-gradient(transparent, transparent 4px, $lightpink 4px, $lightpink);
+            background-image: linear-gradient(transparent, transparent 4px, var(--lightpink) 4px, var(--lightpink));
         }
     }
 
@@ -284,7 +284,7 @@ html {
         background: none;
 
         &:hover {
-            color: $lightpink;
+            color: var(--lightpink);
         }
     }
 
@@ -299,7 +299,7 @@ html {
             text-decoration: none;
 
             &:hover {
-                background-image: linear-gradient(transparent, transparent 6px, $lightpink 6px, $lightpink);
+                background-image: linear-gradient(transparent, transparent 6px, var(--lightpink) 6px, var(--lightpink));
                 background-position: bottom;
                 background-size: 100% 6px;
                 background-repeat: repeat-x;
@@ -317,11 +317,11 @@ html {
             text-decoration: none;
 
             &:hover {
-                background-image: linear-gradient(transparent, transparent 6px, $lightpink 6px, $lightpink);
+                background-image: linear-gradient(transparent, transparent 6px, var(--lightpink) 6px, var(--lightpink));
                 background-position: bottom;
                 background-size: 100% 6px;
                 background-repeat: repeat-x;
-                background-image: linear-gradient(transparent, transparent 6px, $lightpink 6px, $lightpink);
+                background-image: linear-gradient(transparent, transparent 6px, var(--lightpink) 6px, var(--lightpink));
                 background-position: bottom;
                 background-size: 100% 6px;
                 background-repeat: repeat-x;
@@ -337,7 +337,7 @@ html {
     h1 {
         margin-top: 0;
         margin-bottom: 0;
-        color: $darkgrey;
+        color: var(--darkgrey);
         letter-spacing: 0.01em;
         font-weight: 700;
         font-style: normal;
@@ -354,7 +354,7 @@ html {
     }
 
     .logo {
-        fill: $white;
+        fill: var(--white);
         width: 6rem;
         height: 6rem;
     }
@@ -374,7 +374,7 @@ html {
             display: block;
             margin-right: 16px;
             min-width: 100px;
-            color: $lightbrown;
+            color: var(--lightbrown);
             font-size: 14px;
         }
     }
@@ -395,7 +395,7 @@ article {
             margin-bottom: 1rem;
 
             * {
-                color: $darkgrey;
+                color: var(--darkgrey);
                 font-size: 0.85rem;
             }
         }
@@ -417,7 +417,7 @@ article {
                 position: absolute;
                 top: -4px;
                 left: -1rem;
-                color: $pink;
+                color: var(--pink);
                 content: "#";
                 font-weight: bold;
                 font-size: 1.2rem;
@@ -481,12 +481,12 @@ article {
 }
 
 .highlight {
-    color: $grey;
+    color: var(--grey);
     overflow-x: auto;
     margin: 1rem 0;
     padding: 10px 15px;
     border-radius: 4px;
-    background: $lightblack;
+    background: var(--lightblack);
     font-family: "Roboto Mono", monospace;
     -webkit-border-radius: 4px;
 
@@ -511,7 +511,7 @@ pre {
     overflow-x: auto;
     padding: 10px 15px;
     padding-bottom: 0;
-    border: 1px dotted $lightbrown;
+    border: 1px dotted var(--lightbrown);
     border-radius: 4px;
     font-size: 13px;
     font-family: "Roboto Mono", monospace;
@@ -527,7 +527,7 @@ pre {
 
 code {
     padding: 0 5px;
-    border: 1px dotted $lightbrown;
+    border: 1px dotted var(--lightbrown);
     border-radius: 2px;
     -webkit-border-radius: 2px;
 }
@@ -614,7 +614,7 @@ code {
 }
 
 .copy:hover {
-    color: $pink;
+    color: var(--pink);
 }
 
 .copy:after {
@@ -623,7 +623,7 @@ code {
 }
 
 .copy.active:after {
-    color: $green;
+    color: var(--green);
     font-family: "FontAwesome";
     content: "\f00c";
 }
