@@ -4,6 +4,13 @@ $(document).ready(function () {
   $('pre').before('<div class="copy" onclick="copy(this)"></div>');
 });
 
+// loader
+$(window).on("load", function () {
+  setTimeout(function () {
+      $(".loader-wrapper").fadeOut("slow");
+  }, 0);
+});
+
 // code copier
 async function copy(copy) {
 

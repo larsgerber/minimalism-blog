@@ -20,7 +20,7 @@
 
 @media (prefers-color-scheme: light) {
     :root {
-        --lightpink: #d480aa; 	
+        --link_hover: #d480aa; 	
         --title: #167bdd;		 
         --copy_button: #49a314;		
         --logo: #000000;		
@@ -272,7 +272,7 @@ html {
         background-repeat: repeat-x;
 
         &:hover {
-            background-image: linear-gradient(transparent, transparent 4px, var(--lightpink) 4px, var(--lightpink));
+            background-image: linear-gradient(transparent, transparent 4px, var(--link_hover) 4px, var(--link_hover));
         }
     }
 
@@ -280,7 +280,7 @@ html {
         background: none;
 
         &:hover {
-            color: var(--lightpink);
+            color: var(--link_hover);
         }
     }
 
@@ -295,7 +295,7 @@ html {
             text-decoration: none;
 
             &:hover {
-                background-image: linear-gradient(transparent, transparent 6px, var(--lightpink) 6px, var(--lightpink));
+                background-image: linear-gradient(transparent, transparent 6px, var(--link_hover) 6px, var(--link_hover));
                 background-position: bottom;
                 background-size: 100% 6px;
                 background-repeat: repeat-x;
@@ -313,11 +313,11 @@ html {
             text-decoration: none;
 
             &:hover {
-                background-image: linear-gradient(transparent, transparent 6px, var(--lightpink) 6px, var(--lightpink));
+                background-image: linear-gradient(transparent, transparent 6px, var(--link_hover) 6px, var(--link_hover));
                 background-position: bottom;
                 background-size: 100% 6px;
                 background-repeat: repeat-x;
-                background-image: linear-gradient(transparent, transparent 6px, var(--lightpink) 6px, var(--lightpink));
+                background-image: linear-gradient(transparent, transparent 6px, var(--link_hover) 6px, var(--link_hover));
                 background-position: bottom;
                 background-size: 100% 6px;
                 background-repeat: repeat-x;
@@ -640,4 +640,55 @@ img[src*="#thumbnail"] {
 .kb-club a:active {
     text-decoration: none;
     background-image: none;
+}
+
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    z-index: 4;
+    background-color: var(--page_background);  
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    touch-action: none;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader > span { 
+    background: var(--title);
+    border-radius: 50%;
+    margin: 5rem 0.5rem;
+    animation: bouncingLoader 0.6s infinite alternate;
+}
+  
+.loader > span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loader > span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+  
+@keyframes bouncingLoader {
+    from {
+        width: 0.1rem;
+        height: 0.1rem;
+        opacity: 1;
+        transform: translate3d(0);
+    }
+    to {
+        width: 1rem;
+        height: 1rem;
+        opacity: 0.1;
+        transform: translate3d(0, -1rem, 0);
+    }
 }
