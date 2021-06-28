@@ -59,9 +59,12 @@ const post_details = (req, res) => {
         updatedAt,
         image {
             image {
-              filename
-              publicUrlTransformed(transformation: { height: "500", crop: "scale" })
+              filename,
+              publicUrlTransformed(transformation: { height: "500", crop: "scale" }),
             }
+        }
+        authors {
+          name,
         }
       }
     }
