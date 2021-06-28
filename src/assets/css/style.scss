@@ -6,34 +6,30 @@
 }
 
 :root {
-    --lightpink: #d480aa; 	// link hover
-    --pink: #d2a6fe;		 	// title and #
-    --green: #49a314;		// copy button
-
-    --white: #fff;			// logo
-    --lightgrey: #eee;		// blog heading
-    --grey: #d1d9e1;		 	// code block text
-    --darkgrey: #c9cacc;	 	// blog text
-
-    --lightbrown: #666;   	// codeblock frame
-    --lightblack: #212326;   // codeblock background
-    --black: #1d1f21;		// page background
+    --link_hover: #d480aa; 	
+    --title: #d2a6fe;		 	
+    --copy_button: #49a314;		
+    --logo: #fff;			
+    --blog_title: #eee;		
+    --codeblock_text: #d1d9e1;		 	
+    --blog_text: #c9cacc;	 	
+    --codeblock_frame: #666;   	
+    --codeblock_background: #212326;  
+    --page_background: #1d1f21;		
 }
 
 @media (prefers-color-scheme: light) {
     :root {
-        --lightpink: #d480aa; 	// link hover
-        --pink: #167bdd;		 	// title and #
-        --green: #49a314;		// copy button
-
-        --white: #000000;			// logo
-        --lightgrey: #000000;		// blog heading
-        --grey: #000000;		 	// code block text
-        --darkgrey: #000000;	 	// blog text
-
-        --lightbrown: #919191;   	// codeblock frame
-        --lightblack: #f0f4f9;   // codeblock backgroundy
-        --black: #ffffff;		// page background
+        --lightpink: #d480aa; 	
+        --title: #167bdd;		 
+        --copy_button: #49a314;		
+        --logo: #000000;		
+        --blog_title: #000000;		
+        --codeblock_text: #000000;		 
+        --blog_text: #000000;	 	
+        --codeblock_frame: #919191;   
+        --codeblock_background: #f0f4f9;  
+        --page_background: #ffffff;
     }
 }
 
@@ -62,7 +58,7 @@ body {
         display: block;
         margin-top: 3rem;
         margin-bottom: 1rem;
-        color: var(--pink);
+        color: var(--title);
         letter-spacing: 0.01em;
         font-weight: 700;
         font-style: normal;
@@ -76,7 +72,7 @@ body {
         display: block;
         margin-top: 2rem;
         margin-bottom: 0.5rem;
-        color: var(--lightgrey);
+        color: var(--blog_title);
         text-transform: none;
         letter-spacing: normal;
         font-weight: bold;
@@ -84,7 +80,7 @@ body {
     }
 
     h3 {
-        color: var(--lightgrey);
+        color: var(--blog_title);
         text-decoration: underline;
         font-weight: bold;
         font-size: 0.9rem;
@@ -97,7 +93,7 @@ body {
     h6 {
         display: inline;
         text-decoration: none;
-        color: var(--darkgrey);
+        color: var(--blog_text);
         font-weight: bold;
         font-size: 0.9rem;
         margin-top: 0.9rem;
@@ -105,7 +101,7 @@ body {
     }
 
     hr {
-        border: 0.5px dashed var(--darkgrey);
+        border: 0.5px dashed var(--blog_text);
         opacity: 0.5;
         margin: 0;
         margin-top: 20px;
@@ -200,8 +196,8 @@ body {
 
     th {
         padding: 8px;
-        border-bottom: 1px dashed var(--lightbrown);
-        color: var(--lightgrey);
+        border-bottom: 1px dashed var(--codeblock_frame);
+        color: var(--blog_title);
         font-weight: bold;
         font-size: 13px;
     }
@@ -213,8 +209,8 @@ body {
 
     margin: 0;
     height: 100%;
-    background-color: var(--black);
-    color: var(--darkgrey);
+    background-color: var(--page_background);
+    color: var(--blog_text);
     font-display: swap;
     font-weight: 400;
     font-size: 14px;
@@ -268,9 +264,9 @@ html {
     }
 
     a {
-        color: var(--darkgrey);
+        color: var(--blog_text);
         text-decoration: none;
-        background-image: linear-gradient(transparent, transparent 5px, var(--darkgrey) 5px, var(--darkgrey));
+        background-image: linear-gradient(transparent, transparent 5px, var(--blog_text) 5px, var(--blog_text));
         background-position: bottom;
         background-size: 100% 6px;
         background-repeat: repeat-x;
@@ -337,7 +333,7 @@ html {
     h1 {
         margin-top: 0;
         margin-bottom: 0;
-        color: var(--darkgrey);
+        color: var(--blog_text);
         letter-spacing: 0.01em;
         font-weight: 700;
         font-style: normal;
@@ -354,7 +350,7 @@ html {
     }
 
     .logo {
-        fill: var(--white);
+        fill: var(--logo);
         width: 6rem;
         height: 6rem;
     }
@@ -374,7 +370,7 @@ html {
             display: block;
             margin-right: 16px;
             min-width: 100px;
-            color: var(--lightbrown);
+            color: var(--codeblock_frame);
             font-size: 14px;
         }
     }
@@ -395,7 +391,7 @@ article {
             margin-bottom: 1rem;
 
             * {
-                color: var(--darkgrey);
+                color: var(--blog_text);
                 font-size: 0.85rem;
             }
         }
@@ -417,7 +413,7 @@ article {
                 position: absolute;
                 top: -4px;
                 left: -1rem;
-                color: var(--pink);
+                color: var(--title);
                 content: "#";
                 font-weight: bold;
                 font-size: 1.2rem;
@@ -481,12 +477,12 @@ article {
 }
 
 .highlight {
-    color: var(--grey);
+    color: var(--codeblock_text);
     overflow-x: auto;
     margin: 1rem 0;
     padding: 10px 15px;
     border-radius: 4px;
-    background: var(--lightblack);
+    background: var(--codeblock_background);
     font-family: "Roboto Mono", monospace;
     -webkit-border-radius: 4px;
 
@@ -511,7 +507,7 @@ pre {
     overflow-x: auto;
     padding: 10px 15px;
     padding-bottom: 0;
-    border: 1px dotted var(--lightbrown);
+    border: 1px dotted var(--codeblock_frame);
     border-radius: 4px;
     font-size: 13px;
     font-family: "Roboto Mono", monospace;
@@ -527,7 +523,7 @@ pre {
 
 code {
     padding: 0 5px;
-    border: 1px dotted var(--lightbrown);
+    border: 1px dotted var(--codeblock_frame);
     border-radius: 2px;
     -webkit-border-radius: 2px;
 }
@@ -614,7 +610,7 @@ code {
 }
 
 .copy:hover {
-    color: var(--pink);
+    color: var(--title);
 }
 
 .copy:after {
@@ -623,7 +619,7 @@ code {
 }
 
 .copy.active:after {
-    color: var(--green);
+    color: var(--copy_button);
     font-family: "FontAwesome";
     content: "\f00c";
 }
