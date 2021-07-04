@@ -2,6 +2,7 @@ const express = require('express');
 const useragent = require('express-useragent');
 const dotenv = require('dotenv');
 const postRoutes = require('./routes/postRoutes');
+const browserRoutes = require('./routes/browserRoutes');
 const compression = require('compression');
 const app = express();
 
@@ -16,6 +17,9 @@ dotenv.config();
 
 // view engine
 app.set('view engine', 'ejs');
+
+// browser routes
+app.use('/', browserRoutes);
 
 // post routes
 app.use('/', postRoutes);
