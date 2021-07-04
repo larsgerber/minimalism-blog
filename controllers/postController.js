@@ -11,6 +11,7 @@ converter.setOption('openLinksInNewWindow', 'true');
 const fetch = require("node-fetch");
 const dotenv = require('dotenv');
 dotenv.config();
+const sanitizeHtml = require('sanitize-html');
 
 const post_index = (req, res) => {
 
@@ -94,7 +95,8 @@ const post_details = (req, res) => {
                     body = body.replace(image.image.filename, image.image.publicUrlTransformed + "#thumbnail");
                 })
 
-                data.data.allPosts[0].body = (converter.makeHtml(body));
+                body = (converter.makeHtml(body));
+                data.data.allPosts[0].body = sanitizeHtml(body);
                 res.render('details', { data: data.data.allPosts[0] });
             }
 
