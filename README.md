@@ -1,6 +1,8 @@
 [![Node CI](https://github.com/larsgerber/minimalism-blog/actions/workflows/main.yml/badge.svg?branch=1.1.1)](https://github.com/larsgerber/minimalism-blog/actions/workflows/main.yml)
 
-# blog.larsgerber.ch
+# NodeJS Frontend for blog.larsgerber.ch
+
+## Running the Project.
 
 ``` none
 npm install
