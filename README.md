@@ -16,3 +16,5 @@ npm run build
 npm run test
 node app.js
 ```
+
+Support me on: [buymeacoffee/larsgerber](https://www.buymeacoffee.com/larsgerber)
