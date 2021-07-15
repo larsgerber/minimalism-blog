@@ -12,10 +12,11 @@
     --logo: #fff;			
     --blog_title: #eee;		
     --codeblock_text: #d1d9e1;		 	
-    --blog_text: #c9cacc;	 	
-    --codeblock_frame: #666;   	
-    --codeblock_background: #212326;  
-    --page_background: #1d1f21;		
+    --blog_text: #c9cacc;	 
+    --blog_date: #666;	 	
+    --codeblock_frame: #161b22;  	
+    --codeblock_background: #161b22;  
+    --page_background: #0d1117;
 }
 
 @media (prefers-color-scheme: light) {
@@ -26,8 +27,9 @@
         --logo: #000000;		
         --blog_title: #000000;		
         --codeblock_text: #000000;		 
-        --blog_text: #000000;	 	
-        --codeblock_frame: #919191;   
+        --blog_text: #000000;   
+        --blog_date: #919191;	 	
+        --codeblock_frame: #f0f4f9;   
         --codeblock_background: #f0f4f9;  
         --page_background: #ffffff;
     }
@@ -370,7 +372,7 @@ html {
             display: block;
             margin-right: 16px;
             min-width: 100px;
-            color: var(--codeblock_frame);
+            color: var(--blog_date);
             font-size: 14px;
         }
     }
@@ -507,7 +509,8 @@ pre {
     overflow-x: auto;
     padding: 10px 15px;
     padding-bottom: 0;
-    border: 1px dotted var(--codeblock_frame);
+    // border: 1px dotted var(--codeblock_frame);
+    background-color: var(--codeblock_frame);
     border-radius: 4px;
     font-size: 13px;
     font-family: "Roboto Mono", monospace;
@@ -523,7 +526,8 @@ pre {
 
 code {
     padding: 0 5px;
-    border: 1px dotted var(--codeblock_frame);
+    // border: 1px dotted var(--codeblock_frame);
+    background-color: var(--codeblock_frame);
     border-radius: 2px;
     -webkit-border-radius: 2px;
 }
