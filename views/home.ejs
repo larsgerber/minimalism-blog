@@ -3,10 +3,10 @@
 
 <ul class="post-list">
     <li class="post-item">
-        <% if (data.allPosts.length > 0) { %> <% data.allPosts.forEach(post=> { %>
+        <% if (data.posts.length > 0) { %> <% data.posts.forEach(post=> { %>
 
         <div class="meta">
-            <time datetime="<%= post.createdAt %>" itemprop="datePublished">
+            <time datetime="<%= post.created_at %>" itemprop="datePublished">
                 <%= post.createdAt_local %>
             </time>
             <span>

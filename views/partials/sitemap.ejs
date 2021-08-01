@@ -11,11 +11,11 @@
   <priority>1.00</priority>
 </url>
 
-<% if (data.allPosts.length > 0) { %> <% data.allPosts.forEach(post=> { %>
+<% if (data.posts.length > 0) { %> <% data.posts.forEach(post=> { %>
     
 <url>
     <loc>https://blog.larsgerber.ch/<%= post.link %></loc>
-    <lastmod><%= post.updatedAt %></lastmod>
+    <lastmod><%= post.updated_at %></lastmod>
     <priority>0.80</priority>
 </url>
 

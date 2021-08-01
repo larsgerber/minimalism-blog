@@ -16,16 +16,16 @@ const post_index = (req, res) => {
 
     const query = `
     query {
-        allPosts(sortBy: createdAt_DESC,where: { publish: true }) {
-        id,
-        title,
-        createdAt,
-        link,
+        posts(sort: "created_at:desc") {
+          id,
+          title,
+          created_at,
+          link,
+        }
       }
-    }
     `;
 
-    fetch("https://author.larsgerber.ch/admin/api", {
+    fetch("https://strapi.larsgerber.ch/graphql", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -37,8 +37,8 @@ const post_index = (req, res) => {
         })
         .then(data => {
 
-            data.data.allPosts.forEach(post => {
-                post.createdAt_local = (new Date(post.createdAt).toLocaleString());
+            data.data.posts.forEach(post => {
+                post.createdAt_local = (new Date(post.created_at).toLocaleString());
             })
 
             res.render('home', { data: data.data });
@@ -53,24 +53,18 @@ const post_details = (req, res) => {
 
     const query = `
     query {
-        allPosts(where: { AND: [{ link: "${id}" }, { publish: true }] }) {
-        title,
-        body,
-        updatedAt,
-        image {
-            image {
-              filename,
-              publicUrlTransformed(transformation: { height: "500", crop: "scale" }),
-            }
-        }
-        authors {
-          name,
+        posts(where: { link: "${id}" } ) {
+          id,
+          title,
+          body,
+          updated_at,
+          link,
+          author
         }
       }
-    }
     `;
 
-    fetch("https://author.larsgerber.ch/admin/api", {
+    fetch("https://strapi.larsgerber.ch/graphql", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -82,20 +76,20 @@ const post_details = (req, res) => {
         })
         .then(data => {
 
-            if (0 === data.data.allPosts.length) {
+            if (0 === data.data.posts.length) {
                 const data = { title: "Error 404" }
                 res.status(404).render('errors/404', { data });
             } else {
-                data.data.allPosts[0].updatedAt_local = (new Date(data.data.allPosts[0].updatedAt).toLocaleString());
+                data.data.posts[0].updatedAt_local = (new Date(data.data.posts[0].updated_at).toLocaleString());
 
-                var body = data.data.allPosts[0].body
+                var body = data.data.posts[0].body
 
-                data.data.allPosts[0].image.forEach(image => {
-                    body = body.replace(image.image.filename, image.image.publicUrlTransformed + "#thumbnail");
-                })
+                // data.data.posts[0].image.forEach(image => {
+                //     body = body.replace(image.image.filename, image.image.publicUrlTransformed + "#thumbnail");
+                // })
 
-                data.data.allPosts[0].body = (converter.makeHtml(body));
-                res.render('details', { data: data.data.allPosts[0] });
+                data.data.posts[0].body = (converter.makeHtml(body));
+                res.render('details', { data: data.data.posts[0] });
             }
 
         }).catch(function () {
@@ -108,14 +102,14 @@ const sitemap = (req, res) => {
 
     const query = `
     query {
-        allPosts(sortBy: createdAt_DESC,where: { publish: true }) {
-        updatedAt,
-        link,
+        posts(sort: "created_at:desc") {
+          updated_at,
+          link,
+        }
       }
-    }
     `;
 
-    fetch("https://author.larsgerber.ch/admin/api", {
+    fetch("https://strapi.larsgerber.ch/graphql", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
