@@ -1,0 +1,36 @@
+name: Docker CI
+
+on: push
+
+jobs:  
+  build:
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Set environment variables
+      run: | 
+        echo "SERVER_PORT=${{secrets.SERVER_PORT}}" >> .env
+        echo "TEST=${{secrets.TEST}}" >> .env
+
+    - name: Build Docker image
+      run: | 
+        docker-compose build --no-cache
+
+    - name: Pause monitoring
+      run: | 
+        python3 /home/lars/scripts/uptimeapi.py stop "Website (blog.larsgerber.ch)"
+
+    - name: Build Docker container
+      run: | 
+        docker-compose up -d --force-recreate --remove-orphans
+
+    - name: Start monitoring
+      if: always()
+      run: | 
+        python3 /home/lars/scripts/uptimeapi.py start "Website (blog.larsgerber.ch)"
+
+    - name: Remove unused Docker images
+      run: | 
+        docker image prune --all --force

@@ -1,0 +1,14 @@
+# Dependency directories
+node_modules/
+
+# Build
+dist
+
+# Visual Studio Code
+.vscode
+.git
+.github
+.gitignore
+
+# Markdown
+README.md
