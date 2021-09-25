@@ -1,4 +1,4 @@
-[![Node CI](https://github.com/larsgerber/minimalism-blog/actions/workflows/main.yml/badge.svg?branch=1.1.1)](https://github.com/larsgerber/minimalism-blog/actions/workflows/main.yml)
+[![Node CI](https://github.com/larsgerber/minimalism-blog/actions/workflows/docker.yml/badge.svg?branch=master)](https://github.com/larsgerber/minimalism-blog/actions/workflows/docker.yml)
 
 # NodeJS frontend for blog.larsgerber.ch
 
