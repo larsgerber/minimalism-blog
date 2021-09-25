@@ -17,4 +17,12 @@ npm run test
 node app.js
 ```
 
+🐳 Docker
+
+``` none
+docker-compose build --no-cache
+docker-compose up -d --force-recreate --remove-orphans
+docker image prune --all --force
+```
+
 Support me on: [buymeacoffee/larsgerber](https://www.buymeacoffee.com/larsgerber)
