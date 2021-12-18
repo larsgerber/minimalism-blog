@@ -8,12 +8,12 @@ services:
       - "${SERVER_PORT}:${SERVER_PORT}"
     labels:
       traefik.enable: "true"
-      traefik.http.routers.node-test-website.rule: "Host(`shargeforce.net`, `www.shargeforce.net`)"
-      traefik.http.routers.node-test-website.entrypoints: websecure
-      traefik.http.routers.node-test-website.tls: "true"
-      traefik.http.routers.node-test-website.tls.certresolver: resolver
-      traefik.http.routers.node-test-website.middlewares: security-headers
-      traefik.http.routers.node-test-website.tls.options: default
+      traefik.http.routers.minimalism-blog.rule: "Host(`blog.larsgerber.ch`)"
+      traefik.http.routers.minimalism-blog.entrypoints: websecure
+      traefik.http.routers.minimalism-blog.tls: "true"
+      traefik.http.routers.minimalism-blog.tls.certresolver: resolver
+      traefik.http.routers.minimalism-blog.middlewares: security-headers
+      traefik.http.routers.minimalism-blog.tls.options: default
 networks:
   default:
     external: true
