@@ -20,7 +20,7 @@ jobs:
 
     - name: Pause monitoring
       run: | 
-        python3 /home/lars/scripts/uptimeapi.py stop "Website (blog.larsgerber.ch)"
+        python3 /opt/scripts/uptimeapi.py stop "Website (blog.larsgerber.ch)"
 
     - name: Build Docker container
       run: | 
@@ -29,7 +29,7 @@ jobs:
     - name: Start monitoring
       if: always()
       run: | 
-        python3 /home/lars/scripts/uptimeapi.py start "Website (blog.larsgerber.ch)"
+        python3 /opt/scripts/uptimeapi.py start "Website (blog.larsgerber.ch)"
 
     - name: Remove unused Docker images
       run: | 
