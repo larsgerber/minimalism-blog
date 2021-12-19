@@ -8,7 +8,7 @@ services:
       - "${SERVER_PORT}:${SERVER_PORT}"
     labels:
       traefik.enable: "true"
-      traefik.http.routers.minimalism-blog.rule: "Host(`blog.larsgerber.ch`,`www.larsgerber.ch`,`larsgerber.ch`)"
+      traefik.http.routers.minimalism-blog.rule: "Host(`blog.larsgerber.ch`)"
       traefik.http.routers.minimalism-blog.entrypoints: websecure
       traefik.http.routers.minimalism-blog.tls: "true"
       traefik.http.routers.minimalism-blog.tls.certresolver: resolver
