@@ -12,7 +12,7 @@ services:
       traefik.http.routers.minimalism-blog.entrypoints: websecure
       traefik.http.routers.minimalism-blog.tls: "true"
       traefik.http.routers.minimalism-blog.tls.certresolver: resolver
-      traefik.http.routers.minimalism-blog.middlewares: security-headers
+      traefik.http.routers.minimalism-blog.middlewares: security-headers@file
       traefik.http.routers.minimalism-blog.tls.options: default
 networks:
   default:
