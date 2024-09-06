@@ -1,7 +1,7 @@
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const { src, series, parallel, dest, watch } = require('gulp');
 const minify = require('gulp-minify');
 const runList = [copyIcons, copyLogo, copyFiles, compileJS, compileSass, copyFonts]

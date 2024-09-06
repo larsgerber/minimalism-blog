@@ -1,20 +1,9 @@
-version: '3'
 services:
-  app:
+  minimalism-blog:
     container_name: minimalism-blog
     restart: always
     build: .
     ports:
-      - "${SERVER_PORT}:${SERVER_PORT}"
-    labels:
-      traefik.enable: "true"
-      traefik.http.routers.minimalism-blog.rule: "Host(`blog.larsgerber.ch`)"
-      traefik.http.routers.minimalism-blog.entrypoints: websecure
-      traefik.http.routers.minimalism-blog.tls: "true"
-      traefik.http.routers.minimalism-blog.tls.certresolver: resolver
-      traefik.http.routers.minimalism-blog.middlewares: security-headers@file
-      traefik.http.routers.minimalism-blog.tls.options: default
-networks:
-  default:
-    external: true
-    name: traefik
+      - 8080:8080
+    environment:
+      SERVER_PORT: 8080
