@@ -1,6 +1,5 @@
 const express = require('express');
 const postController = require('../controllers/postController');
-const fetch = require("node-fetch");
 
 const router = express.Router();
 
