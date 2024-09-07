@@ -1,24 +1,42 @@
 # NodeJS frontend for blog.larsgerber.ch
 
-## Running the Project
+Built with 🐳
 
-``` none
-npm install
-npm run gulp
-npm run dev
+## Develop
+
+```bash
+docker compose -f docker-compose.yml up
 ```
 
-``` none
-npm install
-npm run build
-npm run test
-node app.js
+## Production
+
+### App version
+
+```bash
+export CI_TAG='0.0.0'
 ```
 
-🐳 Docker
+### Build
 
-``` none
-docker-compose build --no-cache
-docker-compose up -d --force-recreate --remove-orphans
-docker image prune --all --force
+```bash
+docker buildx build --platform linux/amd64 -f ./Dockerfile -t docker.larsgerber.ch/blog/minimalism-frontend:$CI_TAG .
+```
+
+### Test
+
+```bash
+docker run --rm -p 8080:8080 docker.larsgerber.ch/blog/minimalism-frontend:$CI_TAG
+```
+
+### Push
+
+```bash
+docker push docker.larsgerber.ch/blog/minimalism-frontend:$CI_TAG
+```
+
+### Push new tag
+
+```bash
+git tag $CI_TAG
+git push --tags
 ```
