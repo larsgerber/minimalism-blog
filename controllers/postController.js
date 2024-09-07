@@ -23,7 +23,7 @@ const post_details = (req, res) => {
     const id = req.params.id
 
     pb.collection('posts').getOne(id, {
-        fields: 'author,content,tag,title,updated,expand.author.name,expand.tag.name',
+        fields: 'content,title,updated,expand.author.name,expand.tag.name',
         expand: 'author,tag'
 
     }).then((result) => {
@@ -55,6 +55,7 @@ const sitemap = (req, res) => {
 
     pb.collection('posts').getFullList({
         sort: '-created',
+        fields: 'id,updated'
 
     }).then((result) => {
         res.set('Content-Type', 'text/xml');
