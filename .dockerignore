@@ -12,3 +12,11 @@ dist
 
 # Markdown
 README.md
+
+# Docker
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# Misc
+LICENSE
