@@ -9,7 +9,6 @@
   "scripts": {
     "build": "gulp build",
     "gulp": "gulp",
-    "test": "mocha ./tests/test.js --exit",
     "dev": "nodemon app.js"
   },
   "repository": {
@@ -27,13 +26,10 @@
   "homepage": "https://github.com/larsgerber/minimalism-blog#readme",
   "dependencies": {
     "compression": "^1.7.4",
-    "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-useragent": "^1.0.15",
-    "node-fetch": "^2.6.6",
-    "pocketbase": "^0.21.5",
-    "showdown": "^2.1.0"
+    "pocketbase": "^0.21.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
@@ -42,7 +38,6 @@
     "gulp-minify": "^3.0.0",
     "gulp-postcss": "^10.0.0",
     "gulp-sass": "^5.1.0",
-    "mocha": "^10.7.3",
     "nodemon": "^3.1.4",
     "postcss": "^8.4.45",
     "sass": "^1.78.0"

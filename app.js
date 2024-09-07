@@ -1,6 +1,5 @@
 const express = require('express');
 const useragent = require('express-useragent');
-const dotenv = require('dotenv');
 const postRoutes = require('./routes/postRoutes');
 const browserRoutes = require('./routes/browserRoutes');
 const compression = require('compression');
@@ -12,7 +11,6 @@ app.use(compression());
 app.use(express.static('dist', { maxAge: 2592000000 }));
 app.use(useragent.express());
 app.use(express.json());
-dotenv.config();
 
 
 // view engine
