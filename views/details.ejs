@@ -25,7 +25,7 @@
       </div>
   </header>
 
-  <b>Tags:</b><% if (data.expand.tag.length > 0) { %> <% data.expand.tag.forEach(post=> { %>
+  <% if (data.expand.tag) { %><b>Tags:</b><% data.expand.tag.forEach(post=> { %>
     <a inert href="/tags/<%= post.name %>">#<%= post.name %></a>
   <% })} %>
 
