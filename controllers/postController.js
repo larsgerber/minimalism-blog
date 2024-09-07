@@ -47,8 +47,10 @@ const post_details = (req, res) => {
             const result = await pb.collection('posts').getOne(id, {
                 // filter: 'active = true',
             });
-            // const data = { title: "Error 404" }
-            // res.status(404).render('errors/404', { data });
+            if (!result.active == true) {
+                const data = { title: "Error 404" }
+                return res.status(404).render('errors/404', { data });
+            }
             console.log('Result:', result);
             result.updated_local = (new Date(result.updated).toLocaleString());
             res.render('details', { data: result });
