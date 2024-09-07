@@ -1,16 +1,16 @@
-<%- include('partials/head'); -%>  
+<%- include('partials/head'); -%>
 <%- include('partials/header'); -%>
 
 <ul class="post-list">
     <li class="post-item">
-        <% if (data.posts.length > 0) { %> <% data.posts.forEach(post=> { %>
+        <% if (data.length > 0) { %> <% data.forEach(post=> { %>
 
         <div class="meta">
-            <time datetime="<%= post.created_at %>" itemprop="datePublished">
-                <%= post.createdAt_local %>
+            <time datetime="<%= post.created %>" itemprop="datePublished">
+                <%= post.created_local %>
             </time>
             <span>
-                <a href="<%= post.link %>">
+                <a href="<%= post.id %>">
                     <%= post.title %>
                 </a>
             </span>

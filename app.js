@@ -32,6 +32,7 @@ app.use((req, res) => {
 
 // 503
 app.use((err, req, res, next) => {
+  console.log(err)
   const data = { title: "Error 503" }
   res.status(503).render('errors/503', { data })
 });

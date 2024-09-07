@@ -12,90 +12,54 @@ const fetch = require("node-fetch");
 const dotenv = require('dotenv');
 dotenv.config();
 
+const PocketBase = require('pocketbase/cjs')
+
+const pb = new PocketBase('https://blog.larsgerber.ch/pb');
+
 const post_index = (req, res) => {
 
-    const query = `
-    query {
-        posts(sort: "created_at:desc") {
-          id,
-          title,
-          created_at,
-          link,
-        }
-      }
-    `;
-
-    fetch("https://strapi.larsgerber.ch/graphql", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ query })
-    })
-        .then(result => {
-            return result.json();
-        })
-        .then(data => {
-
-            data.data.posts.forEach(post => {
-                post.createdAt_local = (new Date(post.created_at).toLocaleString());
+    async function asyncCall() {
+        try {
+            const result = await pb.collection('posts').getFullList({
+                sort: '-created',
+                filter: 'active = true',
+            });
+            // console.log('Result:', result);
+            result.forEach(post => {
+                post.created_local = (new Date(post.created).toLocaleString());
             })
-
-            res.render('home', { data: data.data });
-        }).catch(function () {
+            res.render('home', { data: result });
+        } catch (error) {
+            // console.log('Error:', error);
             const data = { title: "Error 504" }
             res.status(504).render('errors/504', { data });
-        });
+        }
+    }
+
+    asyncCall();
 }
 
 const post_details = (req, res) => {
     const id = req.params.id
 
-    const query = `
-    query {
-        posts(where: { link: "${id}" } ) {
-          id,
-          title,
-          body,
-          updated_at,
-          link,
-          author
-        }
-      }
-    `;
-
-    fetch("https://strapi.larsgerber.ch/graphql", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ query })
-    })
-        .then(result => {
-            return result.json();
-        })
-        .then(data => {
-
-            if (0 === data.data.posts.length) {
-                const data = { title: "Error 404" }
-                res.status(404).render('errors/404', { data });
-            } else {
-                data.data.posts[0].updatedAt_local = (new Date(data.data.posts[0].updated_at).toLocaleString());
-
-                var body = data.data.posts[0].body
-
-                // data.data.posts[0].image.forEach(image => {
-                //     body = body.replace(image.image.filename, image.image.publicUrlTransformed + "#thumbnail");
-                // })
-
-                data.data.posts[0].body = (converter.makeHtml(body));
-                res.render('details', { data: data.data.posts[0] });
-            }
-
-        }).catch(function () {
+    async function asyncCall() {
+        try {
+            const result = await pb.collection('posts').getOne(id, {
+                // filter: 'active = true',
+            });
+            // const data = { title: "Error 404" }
+            // res.status(404).render('errors/404', { data });
+            console.log('Result:', result);
+            result.updated_local = (new Date(result.updated).toLocaleString());
+            res.render('details', { data: result });
+        } catch (error) {
+            console.log('Error:', error);
             const data = { title: "Error 504" }
             res.status(504).render('errors/504', { data });
-        });
+        }
+    }
+
+    asyncCall();
 }
 
 const sitemap = (req, res) => {

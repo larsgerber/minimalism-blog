@@ -19,14 +19,14 @@
           </span>
           <div class="postdate">
               <time datetime="<%= data.updated_at %>" itemprop="dateUpdated">
-                  <%= data.updatedAt_local %>
+                  <%= data.updated_local %>
               </time>
           </div>
       </div>
   </header>
 
   <div class="content" itemprop="articleBody">
-      <%- data.body %>
+      <%- data.content %>
   </div>
   <a href="/">zurück</a>
 </article>
