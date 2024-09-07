@@ -20,16 +20,15 @@ const post_index = (req, res) => {
 const post_details = (req, res) => {
     const id = req.params.id
 
-    pb.collection('posts').getOne(id, {
-        // filter: 'active = true',
+    pb.collection('posts').getFirstListItem('active = true && id = "' + `${id}` + '"', {
     }).then((result) => {
-        if (!result.active == true) {
-            const data = { title: "Error 404" }
-            return res.status(404).render('errors/404', { data });
-        }
         result.updated_local = (new Date(result.updated).toLocaleString());
         res.render('details', { data: result });
     }).catch((error) => {
+        if (error.response.code == 404) {
+            const data = { title: "Error 404" }
+            return res.status(404).render('errors/404', { data });
+        }
         const data = { title: "Error 504" }
         return res.status(504).render('errors/504', { data });
     });
