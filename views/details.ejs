@@ -15,7 +15,7 @@
       </h1>
       <div class="meta">
           <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-              <span itemprop="name"><%= data.author %></span>
+              <span itemprop="name"><%= data.expand.author.name %></span>
           </span>
           <div class="postdate">
               <time datetime="<%= data.updated_at %>" itemprop="dateUpdated">

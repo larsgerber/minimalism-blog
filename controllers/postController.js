@@ -23,10 +23,12 @@ const post_details = (req, res) => {
     const id = req.params.id
 
     pb.collection('posts').getOne(id, {
-        fields: 'author,content,tag,title,updated,expand.tag.name',
-        expand: 'tag'
+        fields: 'author,content,tag,title,updated,expand.author.name,expand.tag.name',
+        expand: 'author,tag'
 
     }).then((result) => {
+
+        console.log(result)
         result.updated_local = (new Date(result.updated).toLocaleString());
         res.render('details', { data: result });
 
