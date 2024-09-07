@@ -1,6 +1,18 @@
 const PocketBase = require('pocketbase/cjs')
 const pb = new PocketBase('https://blog.larsgerber.ch/pb');
 
+function slug(title) {
+    title = title.toLowerCase();
+    return (title.replace(/ /g, "-"));
+}
+
+function error503(error, res) {
+    console.error("App crashed!")
+    console.log(error)
+    const data = { title: "Error 503" }
+    return res.status(503).render('errors/503', { data })
+}
+
 const post_index = (req, res) => {
 
     pb.collection('posts').getFullList({
@@ -10,44 +22,54 @@ const post_index = (req, res) => {
     }).then((result) => {
         result.forEach(post => {
             post.created_local = (new Date(post.created).toLocaleString());
+            post.url = slug(post.title);
         })
         res.render('home', { data: result });
 
     }).catch((error) => {
-        const data = { title: "Error 504" }
-        return res.status(504).render('errors/504', { data });
+        return error503(error, res);
     });
 }
 
 const post_details = (req, res) => {
-    const id = req.params.id
+    const reqURL = slug(req.params.id);
+    let matchID;
 
-    pb.collection('posts').getOne(id, {
-        fields: 'content,title,updated,expand.author.name,expand.tag.name',
-        expand: 'author,tag'
+    pb.collection('posts').getFullList({
+        fields: 'id,title',
 
     }).then((result) => {
 
-        console.log(result)
-        result.updated_local = (new Date(result.updated).toLocaleString());
-        res.render('details', { data: result });
+        result.forEach(post => {
+            if (slug(post.title) == reqURL) {
+                matchID = post.id
+            }
+        })
+
+        pb.collection('posts').getOne(matchID, {
+            fields: 'content,title,updated,expand.author.name,expand.tag.name',
+            expand: 'author,tag'
+
+        }).then((result) => {
+
+            result.updated_local = (new Date(result.updated).toLocaleString());
+            res.render('details', { data: result });
+
+        }).catch((error) => {
+            try {
+
+                if (error.response.code == 404) {
+                    const data = { title: "Error 404" }
+                    return res.status(404).render('errors/404', { data });
+                }
+
+            } catch (error) {
+                return error503(error, res);
+            }
+        });
 
     }).catch((error) => {
-        try {
-            if (error.response.code == 404) {
-                const data = { title: "Error 404" }
-                return res.status(404).render('errors/404', { data });
-            }
-
-        } catch (error) {
-            console.error("App panicked!")
-            console.log(error)
-            const data = { title: "Error 503" }
-            return res.status(503).render('errors/503', { data })
-        }
-
-        const data = { title: "Error 504" }
-        return res.status(504).render('errors/504', { data });
+        return error503(error, res);
     });
 }
 
@@ -55,15 +77,15 @@ const sitemap = (req, res) => {
 
     pb.collection('posts').getFullList({
         sort: '-created',
-        fields: 'id,updated'
+        fields: 'title,updated'
 
     }).then((result) => {
+        result.forEach(post => { post.url = slug(post.title); })
         res.set('Content-Type', 'text/xml');
         res.render('sitemap', { data: result });
 
     }).catch((error) => {
-        const data = { title: "Error 404" }
-        return res.status(404).render('errors/404', { data });
+        return error503(error, res);
     });
 }
 
