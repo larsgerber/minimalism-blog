@@ -12,7 +12,7 @@ function copyIcons() {
 }
 
 function copyFonts() {
-    return src("src/assets/fonts/**")
+    return src("src/assets/fonts/**", { encoding: false })
         .pipe(dest('dist/assets/fonts'));
 }
 
