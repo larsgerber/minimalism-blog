@@ -38,6 +38,6 @@ app.use((err, req, res, next) => {
 });
 
 // start server
-app.listen(process.env.SERVER_PORT, () => {
-  console.log("Server startet at http://localhost:" + process.env.SERVER_PORT)
+app.listen((process.env.SERVER_PORT || 8080), () => {
+  console.log("Server startet at http://localhost:" + (process.env.SERVER_PORT || 8080))
 });
