@@ -5,7 +5,7 @@ const post_index = (req, res) => {
 
     pb.collection('posts').getFullList({
         sort: '-created',
-        filter: 'active = true',
+        fields: 'created,id,title'
     }).then((result) => {
         result.forEach(post => {
             post.created_local = (new Date(post.created).toLocaleString());
@@ -20,7 +20,8 @@ const post_index = (req, res) => {
 const post_details = (req, res) => {
     const id = req.params.id
 
-    pb.collection('posts').getFirstListItem('active = true && id = "' + `${id}` + '"', {
+    pb.collection('posts').getOne(id, {
+        fields: 'author,content,tag,title,updated'
     }).then((result) => {
         result.updated_local = (new Date(result.updated).toLocaleString());
         res.render('details', { data: result });
@@ -38,7 +39,6 @@ const sitemap = (req, res) => {
 
     pb.collection('posts').getFullList({
         sort: '-created',
-        filter: 'active = true',
     }).then((result) => {
         res.set('Content-Type', 'text/xml');
         res.render('sitemap', { data: result });
