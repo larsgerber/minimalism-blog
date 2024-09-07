@@ -25,6 +25,10 @@
       </div>
   </header>
 
+  <b>Tags:</b><% if (data.expand.tag.length > 0) { %> <% data.expand.tag.forEach(post=> { %>
+    <a href="/tags/<%= post.name %>">#<%= post.name %></a>
+  <% })} %>
+
   <div class="content" itemprop="articleBody">
       <%- data.content %>
   </div>
