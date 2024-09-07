@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Website of blog.larsgerber.ch ",
   "main": "app.js",
-  "directories": {
-    "test": "tests"
-  },
   "scripts": {
     "build": "gulp build",
     "gulp": "gulp",

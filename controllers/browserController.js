@@ -6,8 +6,8 @@ const index = (req, res, next) => {
         const browserVersion = i.substr(0, i.indexOf('.'));
 
         if (browserVersion < 80) {
-            const data = { title: "Error 422" }
-            return res.status(422).render('errors/422', { data });
+            const data = { title: "Error 403" }
+            return res.status(403).render('errors/403', { data });
         }
     }
 

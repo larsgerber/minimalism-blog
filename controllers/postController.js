@@ -6,8 +6,9 @@ function slug(title) {
     return (title.replace(/ /g, "-"));
 }
 
-function error503(error, res) {
+function error503(error, req, res) {
     console.error("App crashed!")
+    console.log("URL: " + req.url)
     console.log(error)
     const data = { title: "Error 503" }
     return res.status(503).render('errors/503', { data })
@@ -27,7 +28,7 @@ const post_index = (req, res) => {
         res.render('home', { data: result });
 
     }).catch((error) => {
-        return error503(error, res);
+        return error503(error, req, res);
     });
 }
 
@@ -64,12 +65,12 @@ const post_details = (req, res) => {
                 }
 
             } catch (error) {
-                return error503(error, res);
+                return error503(error, req, res);
             }
         });
 
     }).catch((error) => {
-        return error503(error, res);
+        return error503(error, req, res);
     });
 }
 
@@ -85,7 +86,7 @@ const sitemap = (req, res) => {
         res.render('sitemap', { data: result });
 
     }).catch((error) => {
-        return error503(error, res);
+        return error503(error, req, res);
     });
 }
 
