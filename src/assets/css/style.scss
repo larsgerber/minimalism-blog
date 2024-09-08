@@ -57,6 +57,21 @@
 }
 
 body {
+    margin: 0;
+    height: 100%;
+    background-color: var(--page_background);
+    color: var(--blog_text);
+    font-display: swap;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "Roboto Mono",
+        monospace;
+    line-height: 1.725;
+    text-rendering: geometricPrecision;
+    flex: 1;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
     h1 {
         display: block;
         margin-top: 3rem;
@@ -210,20 +225,7 @@ body {
         border-bottom: none;
     }
 
-    margin: 0;
-    height: 100%;
-    background-color: var(--page_background);
-    color: var(--blog_text);
-    font-display: swap;
-    font-weight: 400;
-    font-size: 14px;
-    font-family: "Roboto Mono",
-    monospace;
-    line-height: 1.725;
-    text-rendering: geometricPrecision;
-    flex: 1;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
+
 }
 
 * {
