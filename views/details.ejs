@@ -14,9 +14,11 @@
           <%= data.title %>
       </h1>
       <div class="meta">
+        By
           <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
               <span itemprop="name"><%= data.expand.author.name %></span>
           </span>
+          • last updated at
           <div class="postdate">
               <time datetime="<%= data.updated_at %>" itemprop="dateUpdated">
                   <%= data.updated_local %>

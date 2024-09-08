@@ -14,6 +14,15 @@ function error503(error, req, res) {
     return res.status(503).render('errors/503', { data })
 }
 
+function convertDate(date) {
+    return new Intl.DateTimeFormat('de-DE', {
+        day: '2-digit',
+        month: '2-digit',
+        year: '2-digit',
+        timeZone: 'Europe/Zurich',
+    }).format(new Date(date))
+}
+
 const post_index = (req, res) => {
 
     pb.collection('posts').getFullList({
@@ -22,7 +31,7 @@ const post_index = (req, res) => {
 
     }).then((result) => {
         result.forEach(post => {
-            post.created_local = (new Date(post.created).toLocaleString());
+            post.created_local = convertDate(post.created);
             post.url = slug(post.title);
         })
         res.render('home', { data: result });
@@ -53,7 +62,7 @@ const post_details = (req, res) => {
 
         }).then((result) => {
 
-            result.updated_local = (new Date(result.updated).toLocaleString());
+            result.updated_local = convertDate(result.updated);
             res.render('details', { data: result });
 
         }).catch((error) => {
