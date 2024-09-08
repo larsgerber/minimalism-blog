@@ -4,6 +4,16 @@ Built with 🐳
 
 ## Develop
 
+### NPM
+
+```bash
+npm install
+npm run gulp
+npm run dev
+```
+
+### Docker
+
 ```bash
 docker compose -f docker-compose.yml up
 ```
