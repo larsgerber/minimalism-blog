@@ -24,20 +24,20 @@ app.use('/', postRoutes);
 
 // 404
 app.use((req, res) => {
-  const data = { title: "Error 404" }
-  res.status(404).render('errors/404', { data });
+    const data = { title: "Error 404" }
+    res.status(404).render('errors/404', { data });
 });
 
 // 503
 app.use((err, req, res, next) => {
-  console.error("App crashed!")
-  console.log("URL: " + req.url)
-  console.log(err)
-  const data = { title: "Error 503" }
-  res.status(503).render('errors/503', { data })
+    console.error("App crashed!")
+    console.log("URL: " + req.url)
+    console.log(err)
+    const data = { title: "Error 503" }
+    res.status(503).render('errors/503', { data })
 });
 
 // start server
 app.listen((process.env.SERVER_PORT || 8080), () => {
-  console.log("Server startet at http://localhost:" + (process.env.SERVER_PORT || 8080))
+    console.log("Server startet at http://localhost:" + (process.env.SERVER_PORT || 8080))
 });

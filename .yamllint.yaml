@@ -1,0 +1,15 @@
+---
+# See ./examples/example.yaml
+
+# yamllint disable-line rule:line-length
+# source: https://yamllint.readthedocs.io/en/stable/configuration.html#default-configuration
+
+extends: default
+
+ignore: |
+    .markdownlint.yaml
+
+rules:
+    comments-indentation: disable
+    document-start: disable
+    line-length: disable

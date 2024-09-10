@@ -1,5 +1,7 @@
 # NodeJS frontend for blog.larsgerber.ch
 
+<!-- markdownlint-disable MD013 -->
+
 Built with 🐳
 
 ## Develop
