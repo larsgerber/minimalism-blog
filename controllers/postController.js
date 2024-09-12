@@ -1,5 +1,5 @@
 const PocketBase = require('pocketbase/cjs')
-const pb = new PocketBase('https://blog.larsgerber.ch/pb');
+const pb = new PocketBase((process.env.POCKETBASE_ADRESS || 'http://localhost:8090'));
 
 function slug(title) {
     title = title.toLowerCase();

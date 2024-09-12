@@ -10,3 +10,6 @@ dist
 
 # Visual Studio Code
 .vscode
+
+# PocketBase directories
+pb_data
