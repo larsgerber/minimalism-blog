@@ -13,3 +13,7 @@ dist
 
 # PocketBase directories
 pb_data
+
+# MacOS
+.Trash
+.DS_Store
