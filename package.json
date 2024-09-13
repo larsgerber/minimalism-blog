@@ -1,7 +1,7 @@
 {
   "name": "minimalism-blog",
   "version": "1.0.0",
-  "description": "Website of blog.larsgerber.ch ",
+  "description": "Website of blog.larsgerber.ch",
   "main": "app.js",
   "scripts": {
     "build": "gulp build",
@@ -16,7 +16,7 @@
     "blog"
   ],
   "author": "Lars Gerber",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/larsgerber/minimalism-blog/issues"
   },

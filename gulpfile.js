@@ -7,7 +7,7 @@ const minify = require('gulp-minify');
 const runList = [copyIcons, copyLogo, copyFiles, compileJS, compileSass, copyFonts]
 
 function copyIcons() {
-    return src("src/icon/**")
+    return src("src/icon/**", { encoding: false })
         .pipe(dest('dist/icon'));
 }
 
@@ -17,12 +17,12 @@ function copyFonts() {
 }
 
 function copyLogo() {
-    return src("src/logo/**")
+    return src("src/logo/**", { encoding: false })
         .pipe(dest('dist/logo'));
 }
 
 function copyFiles() {
-    return src(["src/robots.txt", "src/favicon.ico"])
+    return src(["src/robots.txt", "src/favicon.ico"], { encoding: false })
         .pipe(dest('dist/'));
 }
 
