@@ -1,3 +1,5 @@
+"use strict";
+
 // code copy button
 $(document).ready(function () {
     $("pre").wrap("<figure class='highlight'></figure>");

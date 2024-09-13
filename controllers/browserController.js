@@ -1,3 +1,5 @@
+"use strict";
+
 const index = (req, res, next) => {
 
     if (req.useragent.isIE == true || req.useragent.isEdge == true) {
