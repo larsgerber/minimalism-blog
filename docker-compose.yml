@@ -1,0 +1,8 @@
+version: '3'
+services:
+  app:
+    container_name: minimalism-blog-keystone
+    build: .
+
+# docker compose build --no-cache
+# then visit https://github.com/larsgerber/minimalism-keystone/blob/master/docker-compose.yml

@@ -25,7 +25,7 @@ const post_index = (req, res) => {
     }
     `;
 
-    fetch("https://author.larsgerber.ch/admin/api", {
+    fetch("http://backend:3000/admin/api", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -57,12 +57,6 @@ const post_details = (req, res) => {
         title,
         body,
         updatedAt,
-        image {
-            image {
-              filename,
-              publicUrlTransformed(transformation: { height: "500", crop: "scale" }),
-            }
-        }
         authors {
           name,
         }
@@ -70,7 +64,7 @@ const post_details = (req, res) => {
     }
     `;
 
-    fetch("https://author.larsgerber.ch/admin/api", {
+    fetch("http://backend:3000/admin/api", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -90,9 +84,9 @@ const post_details = (req, res) => {
 
                 var body = data.data.allPosts[0].body
 
-                data.data.allPosts[0].image.forEach(image => {
-                    body = body.replace(image.image.filename, image.image.publicUrlTransformed + "#thumbnail");
-                })
+                // data.data.allPosts[0].image.forEach(image => {
+                //     body = body.replace(image.image.filename, image.image.publicUrlTransformed + "#thumbnail");
+                // })
 
                 data.data.allPosts[0].body = (converter.makeHtml(body));
                 res.render('details', { data: data.data.allPosts[0] });
@@ -115,7 +109,7 @@ const sitemap = (req, res) => {
     }
     `;
 
-    fetch("https://author.larsgerber.ch/admin/api", {
+    fetch("http://backend:3000/admin/api", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
