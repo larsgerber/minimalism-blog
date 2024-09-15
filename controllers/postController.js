@@ -25,7 +25,7 @@ const post_index = (req, res) => {
       }
     `;
 
-    fetch("https://strapi.larsgerber.ch/graphql", {
+    fetch("http://backend:1337/graphql", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -64,7 +64,7 @@ const post_details = (req, res) => {
       }
     `;
 
-    fetch("https://strapi.larsgerber.ch/graphql", {
+    fetch("http://backend:1337/graphql", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -109,7 +109,7 @@ const sitemap = (req, res) => {
       }
     `;
 
-    fetch("https://strapi.larsgerber.ch/graphql", {
+    fetch("http://backend:1337/graphql", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
