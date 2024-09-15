@@ -3,11 +3,6 @@
 const PocketBase = require('pocketbase/cjs')
 const pb = new PocketBase((process.env.POCKETBASE_ADRESS || 'http://localhost:8090'));
 
-function slug(title) {
-    title = title.toLowerCase();
-    return (title.replace(/ /g, "-"));
-}
-
 function error503(error, req, res) {
     console.error("App crashed!")
     console.log("URL: " + req.url)
