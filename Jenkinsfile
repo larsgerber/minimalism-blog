@@ -32,7 +32,7 @@ pipeline {
             steps {
                 sh "docker run --rm -d --network jenkins-agent --name ${CONTAINER_NAME} ${IMAGE_FULL}"
                 sh 'wget --no-verbose --retry-connrefused --waitretry=1 --tries=5 --spider ${CONTAINER_NAME}:8080/ || exit 1'
-                sh 'curl -s ${CONTAINER_NAME}:8080 | grep "impressum"'
+                sh 'curl -s ${CONTAINER_NAME}:8080 | grep "imprint"'
             }
         }
         stage('Docker Login') {
