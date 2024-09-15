@@ -14,13 +14,8 @@ func main() {
 	app.OnRecordBeforeCreateRequest("posts").Add(func(e *core.RecordCreateEvent) error {
 
 		url := e.Record.GetString("title")
-
 		slugURL := slug.Make(url)
-
 		e.Record.Set("url", slugURL)
-
-		log.Println(url)
-		log.Println(slugURL)
 
 		return nil
 	})
@@ -28,13 +23,8 @@ func main() {
 	app.OnRecordBeforeUpdateRequest("posts").Add(func(e *core.RecordUpdateEvent) error {
 
 		url := e.Record.GetString("title")
-
 		slugURL := slug.Make(url)
-
 		e.Record.Set("url", slugURL)
-
-		log.Println(url)
-		log.Println(slugURL)
 
 		return nil
 	})
