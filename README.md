@@ -1,6 +1,10 @@
 # Frontend and backend for my blog
 
+<!-- markdownlint-disable MD013 -->
+
 ## Run locally
+
+This will run both a Node dev server with hot reload and a PocketBase instance with authentication and API ready to go.
 
 ### Frontend
 
@@ -16,7 +20,7 @@ Start gulp
 npm run gulp
 ```
 
-Start server
+Start dev server
 
 ```bash
 npm run dev
@@ -26,13 +30,15 @@ npm run dev
 | ------------------- | ------------------------------ |
 | localhost:8090/\_/  | PocketBase Admin UI            |
 | localhost:8090/api/ | PocketBase REST API            |
-| localhost:8080/     | Nodemon dev server             |
+| localhost:8080/     | Nodemon server with            |
 
 ### Backend
 
 ```bash
 docker compose -f docker-compose.pb.yaml up
 ```
+
+Import schema and create data
 
 * Open <http://localhost:8090/_/>
 * Create account
@@ -41,8 +47,7 @@ docker compose -f docker-compose.pb.yaml up
 * Merge collections
 * Create new author collection item
 * Create new post collection item and set active to true
-
-Open the frontend <http://localhost:8080>
+* Open the frontend <http://localhost:8080>
 
 ## Docker
 
@@ -80,5 +85,6 @@ Backend
 
 * [PocketBase](https://github.com/pocketbase/pocketbase)
 * [PocketBase Docker](https://github.com/muchobien/pocketbase-docker)
+* [Tellbow Schwingen](https://github.com/tellbow/schwingen)
 
 Built with 🐳 and ❤️
