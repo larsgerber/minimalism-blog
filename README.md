@@ -1,6 +1,7 @@
 # Frontend and backend for my blog
 
 <!-- markdownlint-disable MD013 -->
+<!-- markdownlint-disable MD024 -->
 
 ## Run locally
 
@@ -51,33 +52,31 @@ Import schema and create data
 
 ## Docker
 
-### Build
+### Frontend
 
-Frontend
+Build
 
 `docker buildx build --platform linux/amd64 -f ./Dockerfile.app . -t minimalism-app:0.0.1`
 
-Backend
-
-`docker buildx build --platform linux/amd64 -f ./Dockerfile.pb . -t minimalism-pb:0.0.1`
-
-### Run
-
-Frontend
+Run
 
 `docker run --rm -p 8080:8080 minimalism-app:0.0.1`
 
-Backend
-
-`docker run --rm -p 8090:8090 minimalism-pb:0.0.1`
-
-### Compose
-
-Frontend
+Compose
 
 `docker compose -f docker-compose.app.yaml up`
 
-Backend
+### Backend
+
+Build
+
+`docker buildx build --platform linux/amd64 -f ./Dockerfile.pb . -t minimalism-pb:0.0.1`
+
+Run
+
+`docker run --rm -p 8090:8090 minimalism-pb:0.0.1`
+
+Compose
 
 `docker compose -f docker-compose.pb.yaml up`
 
