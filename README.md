@@ -1,68 +1,84 @@
-# NodeJS frontend for blog.larsgerber.ch
+# Frontend and backend for my blog
 
-<!-- markdownlint-disable MD013 -->
+## Run locally
 
-Built with 🐳
+### Frontend
 
-## Develop
-
-### Local
+Install dependencies
 
 ```bash
-docker compose -f docker-compose.local.yaml up
+npm install
+```
+
+Start gulp
+
+```bash
+npm run gulp
+```
+
+Start server
+
+```bash
+npm run dev
+```
+
+| URL                 | Function                       |
+| ------------------- | ------------------------------ |
+| localhost:8090/\_/  | PocketBase Admin UI            |
+| localhost:8090/api/ | PocketBase REST API            |
+| localhost:8080/     | Nodemon dev server             |
+
+### Backend
+
+```bash
+docker compose -f docker-compose.pb.yaml up
 ```
 
 * Open <http://localhost:8090/_/>
 * Create account
 * Go to <http://localhost:8090/_/#/settings/import-collections>
-* Load ./pocketbase/pb_schema.json
+* Load ./pb_schema/schema.json
 * Merge collections
 * Create new author collection item
 * Create new post collection item and set active to true
 
-```bash
-npm install
-npm run gulp
-npm run dev
-```
+Open the frontend <http://localhost:8080>
 
-Open <http://localhost:8080>
-
-### Remote
-
-```bash
-docker compose -f docker-compose.yml up
-```
-
-## Production
-
-### App version
-
-```bash
-export CI_TAG='0.0.0'
-```
+## Docker
 
 ### Build
 
-```bash
-docker buildx build --platform linux/amd64 -f ./Dockerfile -t docker.larsgerber.ch/blog/minimalism-frontend:$CI_TAG .
-```
+Frontend
 
-### Test
+`docker buildx build --platform linux/amd64 -f ./Dockerfile.app . -t minimalism-app:0.0.1`
 
-```bash
-docker run --rm -p 8080:8080 docker.larsgerber.ch/blog/minimalism-frontend:$CI_TAG
-```
+Backend
 
-### Push
+`docker buildx build --platform linux/amd64 -f ./Dockerfile.pb . -t minimalism-pb:0.0.1`
 
-```bash
-docker push docker.larsgerber.ch/blog/minimalism-frontend:$CI_TAG
-```
+### Run
 
-### Push new tag
+Frontend
 
-```bash
-git tag $CI_TAG
-git push --tags
-```
+`docker run --rm -p 8080:8080 minimalism-app:0.0.1`
+
+Backend
+
+`docker run --rm -p 8090:8090 minimalism-pb:0.0.1`
+
+### Compose
+
+Frontend
+
+`docker compose -f docker-compose.app.yaml up`
+
+Backend
+
+`docker compose -f docker-compose.pb.yaml up`
+
+## Acknowledgements
+
+* [PocketBase](https://github.com/pocketbase/pocketbase)
+* [PocketBase Docker](https://github.com/muchobien/pocketbase-docker)
+
+Built with 🐳 and ❤️
