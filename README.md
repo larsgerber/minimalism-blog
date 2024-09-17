@@ -37,7 +37,7 @@ docker compose -f docker-compose.pb.yaml up
 * Open <http://localhost:8090/_/>
 * Create account
 * Go to <http://localhost:8090/_/#/settings/import-collections>
-* Load ./pb_schema/schema.json
+* Load [./pb_schema/schema.json](./pb_schema/schema.json)
 * Merge collections
 * Create new author collection item
 * Create new post collection item and set active to true
