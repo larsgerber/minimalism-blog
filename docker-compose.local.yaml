@@ -1,6 +1,6 @@
 services:
   minimalism-pb:
-    image: ghcr.io/muchobien/pocketbase:0.22.20
+    image: ghcr.io/muchobien/pocketbase:0.22.21
     container_name: minimalism-pb
     restart: always
     ports:
