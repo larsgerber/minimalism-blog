@@ -30,7 +30,8 @@ pipeline {
         }
         stage('Docker Test') {
             steps {
-                sh "echo test"
+                sh "docker run --rm -d --network jenkins-agent --name ${CONTAINER_NAME} ${IMAGE_FULL}"
+                sh 'wget --no-verbose --retry-connrefused --waitretry=1 --tries=5 --spider ${CONTAINER_NAME}:8090/api/health || exit 1'
             }
         }
         stage('Docker Login') {
