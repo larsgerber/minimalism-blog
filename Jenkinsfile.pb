@@ -17,7 +17,7 @@ pipeline {
         stage('Checkout SCM') {
             steps {
                 script {
-                    git branch: 'feat/slug-url',
+                    git branch: 'dev',
                     credentialsId: 'github',
         		    url: "git@github.com:${REPOSITORY_NAME}.git"
                 }
