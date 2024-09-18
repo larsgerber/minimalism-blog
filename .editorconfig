@@ -22,3 +22,7 @@ trim_trailing_whitespace = true
 # JS Configuration Files
 [*.js]
 indent_size = 4
+
+# Go Configuration Files
+[*.go]
+indent_size = 4

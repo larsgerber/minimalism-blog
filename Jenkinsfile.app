@@ -8,7 +8,7 @@ pipeline {
         REPOSITORY_NAME = 'larsgerber/minimalism-blog'
         DATE = new Date().format('yy.M')
         TAG = "${DATE}.${BUILD_NUMBER}"
-        IMAGE = 'minimalism-frontend'
+        IMAGE = 'minimalism-app'
         IMAGE_FULL = "${REGISTRY_URL}/${IMAGE}:${TAG}"
         CONTAINER_NAME = "test-build-${IMAGE}-${BUILD_NUMBER}"
         DISCORD_WEBHOOK = credentials('discord_webhook_private')
@@ -25,14 +25,14 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh "docker build -t ${IMAGE_FULL} ."
+                sh "docker build -f Dockerfile.app -t ${IMAGE_FULL} ."
             }
         }
         stage('Docker Test') {
             steps {
                 sh "docker run --rm -d --network jenkins-agent -e POCKETBASE_ADRESS='https://blog.larsgerber.ch/pb' --name ${CONTAINER_NAME} ${IMAGE_FULL}"
                 sh 'wget --no-verbose --retry-connrefused --waitretry=1 --tries=5 --spider ${CONTAINER_NAME}:8080/ || exit 1'
-                sh 'curl -s ${CONTAINER_NAME}:8080 | grep "imprint"'
+                sh 'curl -s ${CONTAINER_NAME}:8080 | grep -i "imprint"'
             }
         }
         stage('Docker Login') {
