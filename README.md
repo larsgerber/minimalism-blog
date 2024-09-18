@@ -31,7 +31,7 @@ npm run dev
 | ------------------- | ------------------------------ |
 | localhost:8090/\_/  | PocketBase Admin UI            |
 | localhost:8090/api/ | PocketBase REST API            |
-| localhost:8080/     | Nodemon server with            |
+| localhost:8080/     | Nodemon dev server             |
 
 ### Backend
 

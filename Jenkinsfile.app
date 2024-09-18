@@ -8,7 +8,7 @@ pipeline {
         REPOSITORY_NAME = 'larsgerber/minimalism-blog'
         DATE = new Date().format('yy.M')
         TAG = "${DATE}.${BUILD_NUMBER}"
-        IMAGE = 'minimalism-frontend'
+        IMAGE = 'minimalism-app'
         IMAGE_FULL = "${REGISTRY_URL}/${IMAGE}:${TAG}"
         CONTAINER_NAME = "test-build-${IMAGE}-${BUILD_NUMBER}"
         DISCORD_WEBHOOK = credentials('discord_webhook_private')
@@ -17,7 +17,7 @@ pipeline {
         stage('Checkout SCM') {
             steps {
                 script {
-                    git branch: 'main',
+                    git branch: 'feat/slug-url',
                     credentialsId: 'github',
         		    url: "git@github.com:${REPOSITORY_NAME}.git"
                 }
