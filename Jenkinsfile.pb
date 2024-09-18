@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh "docker build -t ${IMAGE_FULL} ."
+                sh "docker build -f Dockerfile.pb -t ${IMAGE_FULL} ."
             }
         }
         stage('Docker Test') {
