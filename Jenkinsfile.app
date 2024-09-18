@@ -17,7 +17,7 @@ pipeline {
         stage('Checkout SCM') {
             steps {
                 script {
-                    git branch: 'dev',
+                    git branch: 'main',
                     credentialsId: 'github',
         		    url: "git@github.com:${REPOSITORY_NAME}.git"
                 }
