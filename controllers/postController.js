@@ -20,6 +20,19 @@ function convertDate(date) {
     }).format(new Date(date))
 }
 
+function convertSitemapDate(date) {
+    return new Intl.DateTimeFormat('en-CA', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZone: 'Europe/Zurich',
+        hour12: false
+    }).format(new Date(date)).replace(', ', 'T') + '+01:00'
+}
+
 const post_index = (req, res) => {
 
     pb.collection('posts').getFullList({
@@ -69,6 +82,9 @@ const sitemap = (req, res) => {
         fields: 'title,updated, url'
 
     }).then((result) => {
+        result.forEach(post => {
+            post.updated_local = convertSitemapDate(post.updated);
+        })
         res.set('Content-Type', 'text/xml');
         res.render('sitemap', { data: result });
 
