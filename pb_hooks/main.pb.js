@@ -4,7 +4,7 @@
 // https://www.30secondsofcode.org/js/s/string-to-slug/
 // https://gist.github.com/max10rogerio/c67c5d2d7a3ce714c4bc0c114a3ddc6e
 
-onRecordBeforeCreateRequest((e) => {
+onRecordCreateRequest((e) => {
 
     const slugify = str =>
         str
@@ -18,10 +18,10 @@ onRecordBeforeCreateRequest((e) => {
 
     const url = e.record.getString("title")
     e.record.set("url", slugify(url))
-
+    e.next()
 }, "posts")
 
-onRecordBeforeUpdateRequest((e) => {
+onRecordUpdateRequest((e) => {
 
     const slugify = str =>
         str
@@ -35,5 +35,5 @@ onRecordBeforeUpdateRequest((e) => {
 
     const url = e.record.getString("title")
     e.record.set("url", slugify(url))
-
+    e.next()
 }, "posts")

@@ -5,6 +5,6 @@ const browserController = require('../controllers/browserController');
 
 const router = express.Router();
 
-router.get('*', browserController.index);
+router.use(browserController.index);
 
 module.exports = router;
