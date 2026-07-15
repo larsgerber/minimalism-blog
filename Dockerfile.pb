@@ -1,2 +1,2 @@
-FROM ghcr.io/muchobien/pocketbase:0.28.4
+FROM ghcr.io/muchobien/pocketbase:0.39.6
 COPY ./pb_hooks /pb_hooks
